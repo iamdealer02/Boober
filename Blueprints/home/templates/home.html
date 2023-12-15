@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{get_locale}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Document') }}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body{
+            background-color: black;
+            margin: 0% 10% 10% 10%;
+            font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+        }
+
+        .boober-img {
+            height: fit-content;
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand text-light font-weight-bold" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link text-light ml-3" href="#">{{ _('Home') }} <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light ml-3" href="#">{{ _('About') }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light  ml-3" href="#">{{ _('Services') }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light ml-3" href="#">{{ _('Contact') }}</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ _('Language') }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a>
+                    <a class="dropdown-item" href="#" onclick="changeLanguage('fr')">French</a>
+                    <a class="dropdown-item" href="#" onclick="changeLanguage('es')">Spanish</a>
+                </div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="container d-flex flex-row justify-content-end">
+        <div class="boober-text text-light font-weight-bolder d-flex align-items-center">
+            <div>
+                <div class="h1">
+                    {{ _('Go anywhere with BooBER') }}
+                </div>
+                <div class="d-flex flex-row justify-content-lg-around mt-5">
+                    <a href="{{url_for('client.register')}}"><button class="btn btn-dark">{{ _('Ride with BooBER') }}</button></a>
+                    <a href="{{url_for('driver.register')}}"><button  class="btn btn-light">{{ _('Drive with BooBER') }}</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="boober  mt-5 ">
+            <img class="  boober-img " src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_773,h_966/v1695226426/assets/b9/71b0b4-b082-4d67-9615-3ea8a60e6e2a/original/header-dual.png" width="80%">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function changeLanguage(lang) {
+            // Use AJAX or fetch to send a request to your change_language route
+            // and update the content without reloading the page
+            fetch(`/change-language/${lang}`)
+                .then(response => {
+                    if (response.ok) {
+                        // You can optionally update the page content here if needed
+                        console.log(`Language changed to ${lang}`);
+                    } else {
+                        console.error('Failed to change language');
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>
+

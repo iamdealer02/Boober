@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Driver</title>
+  <style>
+            body{
+
+      
+            font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+          
+        }
+        .container{
+            
+            align-items: center;
+        }
+        .navbar {
+            background-color: black;
+        }
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .progress-bar {
+      transition: width 0.3s;
+    }
+    .green {
+            background-color: white;
+            border: rgb(182, 179, 179) solid;
+            border-radius: 12px;
+            margin-bottom: 3px;
+            min-width: fit-content;
+            
+       
+        }
+        .green:hover{
+            cursor: pointer;
+            background-color: #f7f7f7;
+        }
+        .Popular{
+           
+            max-width: fit-content;
+        }
+        #multiStepForm{
+            align-items: center;
+        }
+        ul{
+            font-weight: 500;
+        }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+    </nav>
+
+<div class="container mt-5 ">
+  <form id="multiStepForm" action="/driver/information" method="post" enctype="multipart/form-data">
+    <div class="step active" data-step="1">
+        <!-- select  their city they want to earn in -->
+    <img class="img-fluid" src="	https://d1a3f4spazzrp4.cloudfront.net/web-onboarding/images/icons/dollar_bill.png" height="5%" width="5%">
+      <h2>Earn with Uber</h2>
+      <h4 class="h5">Decide when,where and how you want to earn. </h4>
+      <div class="mb-3 mt-3">
+        <label for="city" class="form-label font-weight-bold">Where yould you like to earn? </label>
+        <input type="text" class="form-control bg-light" placeholder="City" id="city" name="city">
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="field1" class="form-label font-weight-bold">Referral Code (optional) </label>
+        <input type="text" class="form-control bg-light"  id="ReferralCode" name="ReferralCode">
+      </div>
+      <div class="modal-footer mt-5">
+        By proceeding, I agree that Uber or its representatives may contact me by email, phone, or SMS (including by automatic telephone dialing system) at the email address or number I provide, including for marketing purposes.
+      </div>
+      <button type="button" class="btn btn-primary next-step">Next</button>
+    </div>
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+    <div class="step" data-step="2">
+    <label for="vehicleType h2 font-weight-bold" class="form-label font-weight-bold">Choose how you want to earn with Uber</label>
+    <input id="vehicleType" name="vehicleType" type="hidden" value="">
+      <div class="mb-3">
+        <!-- Car Model 2 starts -->
+        <div class="Popular ">
+                            <div class="green" id="Ride-phv" onclick="vehicleType(this)" >
+                                <div class="d-flex flex-row justify-content-between">
+
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div >
+                                                <div class="h5"> Become a phv driver with the support of Uber </div>
+                                            </div>
+                                            <div >
+                                        
+                                                <div class="text  mt-1 ml-3">License: You have a VTC  card or want to become a PHV driver</div>
+                                            
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Black_v1.png" height="100px">
+    
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="green" id="Ride-Taxi" onclick="vehicleType(this)" >
+                                <div class="d-flex flex-row justify-content-between">
+
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div >
+                                                <div class="h5"> Give rides as a taxi Partner</div>
+                                            </div>
+                                            <div >
+                                        
+                                                <div class="text  mt-1 ml-3">License: You have a professional Taxi card</div>
+                                            
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/web-onboarding/images/vehicle_icons/taxi.png
+                                        " height="100px">
+    
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            
+                            <div class="green" id="Ride-MotoTaxi" onclick="vehicleType(this)" >
+                                <div class="d-flex flex-row justify-content-between">
+
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div >
+                                                <div class="h5"> Give rides with moto taxi</div>
+                                            </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/web-onboarding/images/vehicle_icons/parisMoto.png" height="100px">
+    
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="green" id="Delivery-bicycle" onclick="vehicleType(this)" >
+                                <div class="d-flex flex-row justify-content-between">
+
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div >
+                                                <div class="h5"> Delivery with UberEats by bicycle </div>
+                                            </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="	https://d1a3f4spazzrp4.cloudfront.net/web-onboarding/images/vehicle_icons/bicycle.png" height="100px">
+    
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="green " id="Delivery-transportLicense" onclick="vehicleType(this)" >
+                                <div class="d-flex flex-row justify-content-between">
+
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div >
+                                                <div class="h5">Delivery with Uber Eats with a transport licence </div>
+                                            </div>
+                                            <div>
+                                                Vehicle: Scooter less than 125 cm3
+            
+                                            </div>
+                                            <div>
+                                                License: Transport License
+                                            </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="car-image">
+                                        <img src="	https://d1a3f4spazzrp4.cloudfront.net/web-onboarding/images/vehicle_icons/motorbike.png" height="100px">
+    
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- Model 2 Ends -->
+      </div>
+      <div class="card-footer"> Request a Ride Instead</div>
+      <button type="button" class="btn btn-secondary prev-step">Previous</button>
+      <button type="button" class="btn btn-primary next-step">Next</button>
+    </div>
+
+    <div class="step" data-step="3">
+        <!-- document submition  -->
+      <h2>Submit these Documents to become a Certified Uber Driver</h2>
+      <ul type="none">
+        <li>
+            <div class="mb-3">
+                <label for="field3" class="form-label">Piece of valid Identity(Identity card, Passport, Residence Permit) </label>
+                <input type="file" class="form-control-file" id="identity" name="identity" accept=".pdf, .jpg, .png, .jpeg">
+              </div>
+        </li>
+        <li>
+            <div class="mb-3">
+                <label for="field3" class="form-label"> Your Photo of face in center with good lightening </label>
+                <input type="file" class="form-control-file" id="photo" name="photo"  accept=".pdf, .jpg, .png, .jpeg">
+              </div>
+
+        </li>
+        <li>
+            <div class="mb-3">
+                <label for="field3" class="form-label"> Extrait KBIS </label>
+                <input type="file" class="form-control-file" id="Kbis" name="Kbis" accept=".pdf, .jpg, .png, .jpeg">
+              </div>
+            
+        </li>
+        <li>
+            <div class="mb-3">
+                <label for="field3" class="form-label"> License</label>
+                <input type="file" class="form-control-file" id="license" name="license" accept=".pdf, .jpg, .png, .jpeg">
+              </div>
+
+        </li>
+        <li>
+            <div class="mb-3">
+                <label for="field3" class="form-label"> Photo of Vehicle </label>
+                <input type="file" class="form-control-file" id="vehicle" name="vehicle" accept=".pdf, .jpg, .png, .jpeg">
+              </div>
+
+        </li>
+        <li>
+            <div class="mb-3">
+                <label for="field3" class="form-label"> Birth-Certificate </label>
+                <input type="file" class="form-control-file" id="dob" name="dob" accept=".pdf, .jpg, .png, .jpeg">
+              </div>
+
+        </li>
+      </ul>
+
+      <button type="button" class="btn btn-secondary prev-step">Previous</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+
+  <div class="progress mt-4">
+    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function () {
+    const form = $('#multiStepForm');
+    const progress = $('.progress-bar');
+    const steps = $('.step');
+    const totalSteps = steps.length;
+    let currentStep = 1;
+
+    function updateProgress() {
+      const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+      progress.width(`${progressPercentage}%`);
+    }
+
+    function showStep(stepNumber) {
+      steps.removeClass('active');
+      $(`.step[data-step="${stepNumber}"]`).addClass('active');
+      currentStep = stepNumber;
+      updateProgress();
+    }
+
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        showStep(currentStep + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        showStep(currentStep - 1);
+      }
+    }
+
+ 
+    $('.next-step').on('click', nextStep);
+    $('.prev-step').on('click', prevStep);
+
+    updateProgress();
+  });
+
+  let selectedElement = null;
+
+function vehicleType(element) {
+    const input = document.getElementById('vehicleType');
+    const elementId = element.id;
+
+    // Remove border from the previously selected element
+    if (selectedElement) {
+        selectedElement.style.border = '';
+        selectedElement.style.backgroundColor = '';
+    }
+
+    // Set the border to black for the clicked element
+    element.style.border = '3px solid black';
+    element.style.backgroundColor = '#f7f7f7'
+
+
+    // Update the selected element
+    selectedElement = element;
+
+    // Update the input value
+    input.value = elementId;
+    console.log(input.value);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Document') }}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans+Text:500&amp;lang=en">
+    <!-- Bootstrap-datepicker CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <style>
+     
+        body {
+            font-family:  sans-serif;
+            overflow: hidden;
+
+        
+        }
+        input{
+            
+            background-color: #ebebeb;
+            border: #ccc;
+            width: 150%;
+            border-radius: 1%;
+            padding: 3%;
+            animation: fadeAppear 1s ease-in-out;
+
+        }
+        
+
+        .search 
+        {
+            width:  150%;
+            animation: fadeAppear 1s ease-in-out;
+
+        }
+        .pickup{
+            width: 150%;
+            animation: fadeAppear 1s ease-in-out;
+
+        }
+        .finalSelection{
+            position: fixed;
+            margin-top: auto;
+
+
+        }
+        /* div{
+            border: red solid;
+        } */
+        .container {
+            width: fit-content;
+            padding: 1%;
+        }
+        .navbar {
+            background-color: black;
+        }
+        .selection-board {
+            width: 1200px;
+            
+            z-index: 1000;
+            position: relative; /* or position: absolute; */
+        }
+        .drive-data{
+            border: black solid;
+        }
+        .autocomplete-items {
+            position: absolute;
+            z-index: 1000;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            max-height: 200px;
+            overflow-y: auto;
+            cursor: pointer;
+            rgb(16, 13, 13)
+        }
+        
+        .map-board {
+            max-width: 100%;
+            height:80vh;
+            
+        }
+        @media (max-width: 768px) {
+            .map-board {
+                margin-top: 30px; /* Add margin for better spacing */
+            }
+        }
+        .green {
+            background-color: white;
+            border: black solid;
+            border-radius: 12px;
+            min-width: fit-content;
+            width: 500px;
+            padding-bottom: 5%;
+            padding-top: 1%;
+            margin-bottom: 2%;
+            padding-right: 1%;
+           padding-left: 5%;
+           
+       
+        }
+        .green:hover{
+            cursor: pointer;
+            background-color: #f7f7f7;
+        }
+
+        .car-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3px;
+            margin-left: 4px;
+        }
+        .car-content .row {
+            display: flex;
+            align-items: center;
+        }
+        .h3 {
+            margin-bottom: 0;
+        }
+        .final{
+            width: 10px;
+        }
+        .person-image {
+            margin-top: 1px;
+            margin-left: 3px;
+        }
+        #SelectMode{
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height:85vh;  
+            /* Increase the height as needed */
+            margin-bottom: 200px;
+            display: none;
+            width: fit-content;
+           
+            
+            
+           
+        }
+        @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(300px);
+        }
+        to {
+            opacity: 1;
+        }
+        }
+        @keyframes fadeAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+    
+    </style>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans+Text:500&amp;lang=en">
+   <script>
+     "use strict";
+   
+   const CONFIGURATION = {
+      "ctaTitle": "Checkout",
+      "mapOptions": {"center":{"lat":37.4221,"lng":-122.0841},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":11,"zoomControl":true,"maxZoom":22,"mapId":""},
+      "mapsApiKey": "AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc",
+      "capabilities": {"addressAutocompleteControl":true,"mapDisplayControl":false,"ctaControl":true}
+    };
+
+
+    const SHORT_NAME_ADDRESS_COMPONENT_TYPES = new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+const ADDRESS_COMPONENT_TYPES_IN_FORM = ['from', 'to'];
+
+function getFormInputElement(componentType) {
+    return document.getElementById(`${componentType}-input`);
+}
+
+function fillInAddress(place, componentType) {
+    function getComponentName(componentType) {
+        for (const component of place.address_components || []) {
+            if (component.types[0] === componentType) {
+                return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                    component.short_name :
+                    component.long_name;
+            }
+        }
+        return '';
+    }
+
+    function getComponentText(componentType) {
+    if (componentType === 'from' || componentType === 'to') {
+        const streetNumber = getComponentName('street_number');
+        const route = getComponentName('route');
+        const locality = getComponentName('locality');
+        const administrativeArea = getComponentName('administrative_area_level_1');
+        const postalCode = getComponentName('postal_code');
+        const country = getComponentName('country');
+
+        const addressComponents = [streetNumber, route, locality, administrativeArea, postalCode, country];
+        return addressComponents.filter(Boolean).join(', ');
+    } else {
+        return getComponentName(componentType);
+    }
+}
+    getFormInputElement(componentType).value = getComponentText(componentType);
+}
+
+async function fromAutocomplete() {
+    const { Autocomplete } = google.maps.places;
+
+    const autocomplete = new Autocomplete(getFormInputElement('from'), {
+        fields: ['address_components', 'geometry', 'name'],
+        types: ['address'],
+    });
+
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+            window.alert(`No details available for input: '${place.name}'`);
+            return;
+        }
+        fillInAddress(place, 'from');
+    });
+}
+
+async function toAutocomplete() {
+    const { Autocomplete } = google.maps.places;
+
+    const autocomplete = new Autocomplete(getFormInputElement('to'), {
+        fields: ['address_components', 'geometry', 'name'],
+        types: ['address'],
+    });
+
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+            window.alert(`No details available for input: '${place.name}'`);
+            return;
+        }
+        fillInAddress(place, 'to');
+    });
+}
+
+async function initMap() {
+    await fromAutocomplete();
+    await toAutocomplete();
+}
+
+</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+    </nav>
+    <div class="container ">
+            <div class="d-flex flex-column flex-lg-row   justify-content-between log" style="height: 100vh;">
+                <div class="selection-board ">
+                    <div class="drive-data d-flex flex-column justify-content-between border rounded p-4 ">
+                            <!-- Don't forget to cache the data the user put in the form -->
+                        <div class="d-flex flex-row justify-content-between">
+
+                            <div class="form-group mb-2">
+                                <div class="h3  font-weight-bold"> Get your Ride </div>
+                                <div class="panel">
+                            
+                                    <input type="text" class="mb-4 mt-1 " placeholder="Pickup Address" id="from-input"/>
+                                
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <div class="panel">
+                                        <input type="text width " placeholder="Dropoff Address" id="to-input"/>
+                                        
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" onclick="pickup();generateTimeOptions()" class="pickup btn btn-dark font-weight-bold  text-left"><i class="fas fa-clock"></i> Pickup now</button>
+                            </div>
+                            <div class="form-group">
+                                <button onclick="Geocode()" class="search btn btn-light text-dark font-weight-bold  text-left">Search</button>
+                            </div>
+                    
+                    </div>
+                </div>
+                <!-- START -->
+                <div>
+                    <div id="SelectMode" class="SelectMode ">
+                        <div class="h2 font-weight-bolder"> Choose a ride </div>
+                        <input type="hidden" id="rideType">
+                        <!-- Car Mode 1 -->
+                        <div class="Recommended">
+                            <h4 class="h4 font-weight-bold"> Recommended </h4>
+                            <div class="green" id="Green" onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_Green.png" height="150px">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> Green </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">4 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">Electric and hybrid vehicle</div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="green" id="UberX"  onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_v1.png" height="150px ">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> UberX </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">3 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">Affordable, everyday rides </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                        
+                            </div>
+                            
+                            <div class="green" id="Taxi"  onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Taxi_v1.png" height="150px ">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> Taxi </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">7 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-taxi"></i> </div>
+                                                <div class="text  mt-1 ml-3">Taxi trips at regulated <br>fare as indicated by the taximeter </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="finalSelection" id="finalSelection">
+                                       
+                                    </div>
+            
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- Car Model 1 Ends  -->
+                        <!-- Car Model 2 starts -->
+                        <div class="Popular">
+                            <h4 class="font-weight-bolder"> Popular </h4>
+                            <div class="green" id="Berlin"  onclick="vehicleType(this)" >
+                                <div class="d-flex flex-row" >
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Black_v1.png" height="150px">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> Berline </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">4 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">High end cars with top-rated drivers</div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="green" id="Comfort"  onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_v1.png" height="150px ">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> Comfort </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">3 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">Newer cars with extra legroom </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                        
+                            </div>
+                            
+                            <div class="green" id="Van" onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Taxi_v1.png" height="150px ">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> 
+                                                    Van </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>6</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">7 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">High end cars for <br> 6 with top-rated drivers</div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- Model 2 Ends -->
+                        <!-- Model 3 starts -->
+                        <div class="other">
+                            <h4 class="font-weight-bolder"> Other </h4>
+                            <div class="green" id="Uber-pet" onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="	https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_Pet.png" height="150px">
+
+                                    </div>
+                                    <div class="car-content" >
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3"> Uber Pet </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">4 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">Ride with your pet</div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="green" id="Spaceship"  onclick="vehicleType(this)">
+                                <div class="d-flex flex-row">
+                                    <div class="car-image">
+                                        <img src="https://cdn-icons-png.flaticon.com/128/4076/4076459.png" height="90px ">
+
+                                    </div>
+                                    <div class="car-content">
+                                        <div class="d-flex flex-column mt-3 ml-4">
+                                            <div class="row">
+                                                <div class="h3 font-weight-bold"> SpaceShip </div>
+                                                <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
+                                                <div class="text  mt-1 ml-3">10 mins away</div>
+                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="car-image mt-1 ml-3"><i class="fa fa-cab"></i>  </div>
+                                                    <div class="text  mt-1 ml-3">Go t </div>
+                                            
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                
+                        
+                                </div>
+                            
+                            
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- Model 2 Ends -->
+
+                    </div>
+                </div>
+                <!-- END -->
+
+                <div id="map-board" class="map-board  ">
+                        <iframe
+                            width="600"
+                            height="700"
+                            style="border:0"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc
+                            &q=Space+Needle,Seattle+WA">
+                            </iframe>                
+                        
+                </div>
+
+
+
+            </div>
+        
+    </div>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc&libraries=places,marker&callback=initMap&solution_channel=GMP_QB_addressselection_v2_cAC" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap-datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+    <script>
+// --------------------------------------------------------------------------------------------------------------------
+        function pickup(){
+            var drivedata = document.querySelector('.drive-data');
+            var firstSearchBtn = document.querySelector('.selection-board .form-group .search');
+                if (firstSearchBtn) {
+                    firstSearchBtn.remove();
+}
+            drivedata.innerHTML +=  
+                '<div class="h4"> When do you want to be picked up? </div>' +
+                // to select the time 
+                '<div class="form-group">' +
+                '   <div class="input-group">' +
+                '       <div class="input-group-prepend">' +
+                '           <span class="input-group-text"><i class="fas fa-calendar"></i></span>' +
+                '       </div>' +
+                '       <input type="text" class="form-control" id="datepicker" placeholder="Select a date">' +
+                '   </div>' +
+                '</div>' +
+                '<div class="form-group">' +
+                '   <label for="pickupTime">Pickup Time:</label>' +
+                '   <div class="input-group">' +
+                '       <div class="input-group-prepend">' +
+                '           <span class="input-group-text"><i class="fas fa-clock"></i></span>' +
+                '       </div>' +
+                '       <select class="form-control" id="pickupTime" name="pickupTime">' +
+                '       </select>' +
+                '   </div>' +
+                '</div>';
+                '<div class="form-group">' +
+                '<button type="submit" class="btn btn-light text-dark btn-block text-left">Search</button>' +
+                '</div>' +
+                '</div>';
+
+            // Initialize Bootstrap-datepicker for the dynamically added input
+            $('#datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                language: 'en-GB'
+            });
+        }
+        // Function to generate time options for all times in a day
+        function generateTimeOptions() {
+            var select = document.getElementById("pickupTime");
+
+            // Clear existing options
+            select.innerHTML = "";
+
+            // Generate new options for every 15 minutes in a day
+            for (var hour = 0; hour < 24; hour++) {
+                for (var minute = 0; minute < 60; minute += 15) {
+                    var formattedHour = (hour % 12 || 12).toString().padStart(2, '0');
+                    var formattedMinute = minute.toString().padStart(2, '0');
+                    var time = formattedHour + ":" + formattedMinute + (hour < 12 ? " AM" : " PM");
+
+                    var option = document.createElement("option");
+                    option.value = time;
+                    option.text = time;
+                    select.appendChild(option);
+                }
+            }
+        }
+
+        let map, directionsService, directionsRenderer;
+  
+  function initProjectedRide() {
+    // Initialize the map
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13
+    });
+
+    // Initialize the Directions service and renderer
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+
+    // Call the function to display the route
+    calculateAndDisplayRoute();
+  }
+
+  function calculateAndDisplayRoute() {
+    // Define the start and end points
+    const start = 'Place du Chatelet, Paris, France';
+    const end = 'Kremlin Bicêtre, France';
+
+    // Request directions from the Directions service
+    directionsService.route(
+      {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+      },
+      (response, status) => {
+        if (status === 'OK') {
+          // Display the route on the map
+          directionsRenderer.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      }
+    );
+  }
+
+function Geocode() {
+    console.log('geocoding in progress');
+    SelectMode()
+    var Pickup = document.getElementById('from-input').value;
+    var Dropoff = document.getElementById('to-input').value;
+
+    // Make an AJAX request to the Google geocode API
+    $.ajax({
+        url: '/google/geocode', // Replace with your backend endpoint
+        method: 'post',
+        data: {
+            Pickup: Pickup,
+            Dropoff: Dropoff
+        },
+        success: function (data) {
+            console.log(data)
+            //  get the geocoded points and put it in the google map
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
+}
+    function SelectMode(){
+        //generate Ride Mode Option
+        var selectmode = document.getElementById('SelectMode')
+        selectmode.style.animationName = 'fadeInRight';
+    selectmode.style.animationDuration = '1s';
+    selectmode.style.animationTimingFunction = 'ease-in-out';
+        selectmode.style.display = "block";
+
+        //removing the map from the flex
+        var mapArea = document.getElementById('map-board');
+        mapArea.style.display = "none";
+        
+        
+    }
+var selectedElement = None
+function vehicleType(element) {
+    const input = document.getElementById('rideType');
+    finalSelection = document.getElementById('finalSelection');
+    console.log(finalSelection)
+    const elementId = element.id;
+
+    // Remove border from the previously selected element
+    if (selectedElement) {
+        selectedElement.style.border = '';
+        selectedElement.style.backgroundColor = '';
+    }
+
+    // Set the border to black for the clicked element
+    element.style.border = '3px solid black';
+    element.style.backgroundColor = '#f7f7f7'
+
+
+    // Update the selected element
+    selectedElement = element;
+
+    // Update the input value
+    input.value = elementId;
+
+    finalSelection.innerHTML = `
+    <div >
+        <div>
+        <button class='btn btn-light btn-block' id='final' onclick='SendData()'> Select ${elementId} </button>
+        </div>
+    </div>
+    `
+    console.log('done');
+}
+function SendData() {
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
+
+    // Get ride details from the form
+    var pickup = document.getElementById('from-input').value;
+    var dropoff = document.getElementById('to-input').value;
+    var vehicleType = document.getElementById('rideType').value;
+
+    // Emit a socket event to the server
+    // socket.emit('ride_request', rideData);
+    // Create an object with the data
+    var rideData = {
+        pickup: pickup,
+        dropoff: dropoff,
+        vehicleType: vehicleType
+    };
+    console.log(rideData)
+    //receiving the message from the event
+    socket.on('connect', function(){
+        socket.on('message', function(data){
+            console.log(' Server has started : ', data['data']);
+        })
+    //sending message to rider event
+    // socket.on('ride_request')
+
+    })
+
+
+    // Use AJAX to send the data to the backend and socketio to send in real-time to drivers
+    $.ajax({
+        type: 'POST',
+        url: '/client/ride', // Replace with the actual URL of your backend endpoint
+        data: rideData,
+        success: function(response) {
+            // Handle the success response from the backend
+            console.log('Data sent successfully:', response);
+        },
+        error: function(error) {
+            // Handle errors
+            console.error('Error sending data:', error);
+        }
+    });
+}
+    </script>
+</body>
+</html>

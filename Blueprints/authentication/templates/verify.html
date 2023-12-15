@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{get_locale}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Document') }}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: black;
+        }
+
+        .verify-board {
+            margin: 20px auto 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .otp-input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center log" style="height: 100vh;">
+            <div class="verify-board ">
+                <div class="h2">PLEASE ENTER THE ONE-TIME PASSWORD TO VERIFY YOUR ACCOUNT</div>
+                <div class="h5 text-center mt-3">A one-time password has been sent to</div>
+                <!-- OTP Form -->
+                <form id="otpForm">
+                    <div class="d-flex justify-content-center mt-5">
+                        <!-- Create 6 input fields for OTP -->
+                        <input type="text" class="otp-input" maxlength="1" id="digit1" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit2" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit3" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit4" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit5" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit6" required>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-5" onclick="submitOTP()">VALIDATE</button>
+                </form>
+                <div class="mt-5"><img src="https://img.icons8.com/?size=160&id=hL3PqwLhIJcz&format=gif"></div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function moveToNext(currentInput) {
+            var maxLength = parseInt(currentInput.maxLength);
+            var currentInputId = currentInput.id;
+
+            if (currentInput.value.length === maxLength) {
+                var nextInputId = "digit" + (parseInt(currentInputId[currentInputId.length - 1]) + 1);
+                var nextInput = document.getElementById(nextInputId);
+
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        }
+
+        function submitOTP() {
+            // Implement your logic to submit the OTP
+            // You can access individual digits using document.getElementById('digit1').value, etc.
+        }
+    </script>
+</body>
+</html>
