@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 # from gridfs import GridFS
+from bson import ObjectId
 
 # Create a new client and connect to the server
 client = MongoClient("mongodb://localhost:27017")
@@ -28,17 +29,28 @@ def add_rides(client_id, pickup_location, dropoff_location, status='Initiated'):
         'status': status,
         'made_at': posted_at
     }
+    result = collection.insert_one(ride)
+    ride_id = result.inserted_id  # Get the generated _id
+    
+    return ride_id
 
-def assign_driver(ride_id, pickup_location, driver_id):
+def assign_driver(ride_id, driver_id):
     # assigns the driver to the ride and add a driver_id to the ride
     # updates the ride status to accepted
-     collection.update_one({'ride_id': ride_id}, {'$set': {'driver_id': driver_id, 'status': 'Accepted'}})   
-    
+    ride_id = ObjectId(ride_id)
+    collection.update_one(
+        {'_id': ride_id},
+        {'$set': {'driver_id': driver_id, 'status': 'Accepted'},
+        },
+
+    )
+    return 'done'
 
 
 def update_status(status, ride_id):
     # updates the ride status
-    collection.update_one({'ride_id': ride_id}, {'$set': {'status': status}})
+    ride_id = ObjectId(ride_id)
+    collection.update_one({'_id': ride_id}, {'$set': {'status': status}})
 
 def get_recent_rides():
     # returns the recent rides

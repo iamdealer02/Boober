@@ -753,40 +753,43 @@ function vehicleType(element) {
 }
 function SendData() {
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
-
+    console.log('inside s')
     // Get ride details from the form
     var pickup = document.getElementById('from-input').value;
     var dropoff = document.getElementById('to-input').value;
     var vehicleType = document.getElementById('rideType').value;
 
-    // Emit a socket event to the server
-    // socket.emit('ride_request', rideData);
-    // Create an object with the data
     var rideData = {
-        pickup: pickup,
-        dropoff: dropoff,
-        vehicleType: vehicleType
-    };
-    console.log(rideData)
-    //receiving the message from the event
-    socket.on('connect', function(){
-        socket.on('message', function(data){
-            console.log(' Server has started : ', data['data']);
-        })
-    //sending message to rider event
-    // socket.on('ride_request')
-
-    })
-
-
+                pickup: pickup,
+                dropoff: dropoff,
+                vehicleType: vehicleType
+            };
     // Use AJAX to send the data to the backend and socketio to send in real-time to drivers
     $.ajax({
         type: 'POST',
         url: '/client/ride', // Replace with the actual URL of your backend endpoint
-        data: rideData,
-        success: function(response) {
+        contentType: 'application/json', // Set content type to JSON
+        data: JSON.stringify(rideData),
+        success: function(data) {
             // Handle the success response from the backend
-            console.log('Data sent successfully:', response);
+            console.log('Data sent successfully:', data);
+                // Create an object with the data
+                var ride_id = data['ride_id'];
+                rideData = {
+                    ride_id : ride_id,
+                    pickup: pickup,
+                    dropoff: dropoff,
+                    vehicleType: vehicleType
+
+                }
+            console.log('Ride data is : ',rideData)
+                //receiving the message from the event
+            socket.on('connect', function(){
+                socket.on('message', function(data){
+                    console.log(' Server has started : ', data['data']);
+                })
+                socket.emit('ride_request', {room_name: `driver_${vehicleType}`, message: rideData})
+            })
         },
         error: function(error) {
             // Handle errors
@@ -794,6 +797,17 @@ function SendData() {
         }
     });
 }
+// checks if your ride has been accepted
+socket.on('ride_accepted', function(data) {
+        console.log('Ride accepted:', data.message);
+        // Handle the ride acceptance update, e.g., display a message or redirect
+        //remove it from the  division
+        if (data.message.status == 'Accepted'){
+            console.log(data.message.ride_id)
+            console.log('YOUR RIDE HAS BEEN ACCEPTED')
+            
+        }
+})
     </script>
 </body>
 </html>

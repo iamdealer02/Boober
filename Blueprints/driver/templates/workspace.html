@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body{
-            background-color: black;
-            margin: 0% 10% 10% 10%;
+
             font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;;
         }
 
@@ -18,7 +17,19 @@
             height: fit-content;
             margin-left: 20%;
         }
+        .navbar{
+    
+            background-color: black;
+        }
     </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+        // Your function here
+        SendData()
+    });
+
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg ">
@@ -27,13 +38,102 @@
           <span class="navbar-toggler-icon bg-dark"></span>
         </button>
     </nav>
-    <div>
-        
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">ALL YOUR RIDE REQUESTS ARE HERE</h5>
+            </div>
+            <div id="status" CLASS="d-flex flex-row">
+                <div> Your current status : </div>
+                <!-- derive it from the backend later -->
+                <div id="status_value">Free</div>
+            </div>
+            <div class="card-body" id="ride_request_container">
+
+            </div>
+        </div>
     </div>
+    
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
 
+
+    function SendData() {
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
+    var rideRequestContainer = document.getElementById('ride_request_container');
+    socket.on('connect', function(){
+        socket.on('message', function(data){
+            console.log(' Server has started :', data['data']);
+        });
+
+    })
+    //receiving any ride request in the room:
+    socket.on('receive_ride_message', function(data) {
+    // Create a new card for the ride request
+    var card = document.createElement('div');
+    card.className = 'card mb-3';
+
+    // Add content to the card
+    card.innerHTML = `
+        <div class="card-body" id="${data.message.ride_id}">
+            <div class="mb-3">PICKUP: ${data.message.pickup}</div>
+            <div class="mb-3">DROPOFF: ${data.message.dropoff}</div>
+            <div class="d-flex flex-row">
+                <!-- Accept and Reject Buttons -->
+                <button type="button" class="btn btn-success mr-2" onclick="acceptRequest('${data.message.ride_id}')">Accept</button>
+                <button type="button" class="btn btn-danger" onclick="rejectRequest()">Reject</button>
+            </div>
+        </div>
+    `;
+
+    // Append the card to the container
+    rideRequestContainer.appendChild(card);
+        });
+    // Continuously listen for ride acceptance updates
+    socket.on('ride_accepted', function(data) {
+        console.log('Ride accepted:', data.message);
+        
+        // Handle the ride acceptance update, e.g., display a message or redirect
+        // Remove the entire card from the DOM
+        if (data.message.status == 'Accepted') {
+            console.log(data.message.ride_id);
+            var ride_div = document.getElementById(data.message.ride_id);
+            
+            // Check if the element exists before trying to remove it
+            if (ride_div) {
+                ride_div.remove();  // Remove the entire card element
+            }
+        }
+        // Update in the database
+    });
+
+}
+function acceptRequest(ride_id) {
+    console.log('accepting ride')
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
+    socket.emit('ride_accepted', { ride_id: ride_id });
+    // EMIT THE DATA 
+    console.log('emiting the data that ride has been accepted')
+    // send the accept request in the database
+    $.ajax({
+        type: 'POST',
+        url: `/driver/accept_ride/${ride_id}`, // Replace with the actual URL of your backend endpoint  `
+        success: function(data) {
+            // window.location.href = `driver/ride/${ride_id}`;
+            console.log('accepted')
+        },
+        error: function(error) {
+            console.error('Error sending data:', error);
+        }
+    });
+
+}
+
+    </script>
 </body>
 </html>
 

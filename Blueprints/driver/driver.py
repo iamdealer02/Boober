@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
 from Database.MongoDB.driver import add_driver_details, is_verified,form_filled
+from Database.MongoDB.rides import assign_driver
 from Database.SQL.client import add_user
 from Class.authentication.classes import RegistrationForm
 from flask_bcrypt import Bcrypt
@@ -45,8 +46,8 @@ def driver_space():
 @login_required
 def driver_information():
 # do it later
-    id = 1
-    email='kjhfjs'
+    id = current_user.id
+    email=current_user.email
     driveCity = request.form.get('city')
     print(driveCity)
     vehicleType = request.form.get('vehicleType')
@@ -63,3 +64,22 @@ def driver_information():
     return redirect(url_for('driver.driver_space'))
 
 # display a notification in driver space if any request has been made and if any driver has accepted it
+@driver_bp.route("/accept_ride/<ride_id>", methods=['POST'])
+@login_required
+def accept_ride(ride_id):
+# do it later
+    # the ride has been accepted
+    print(ride_id, current_user.id)
+    assign_driver(ride_id, current_user.id)
+    print('assigning driver')
+    return 'Accepted'
+    
+
+# if the driver has accepted the ride
+@driver_bp.route("/ride/<ride_id>", methods=['GET'])
+@login_required
+def riding(ride_id):
+    # make sure only the driver related to the ride  can access this 
+    return 'WELCOME'
+    
+    

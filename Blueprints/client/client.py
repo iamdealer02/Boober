@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, redirect,request
+from flask import Blueprint, render_template, redirect,request, jsonify
 from flask_login import login_required, current_user
 from Class.authentication.classes import RegistrationForm
 from flask_bcrypt import Bcrypt
 from Database.SQL.client import add_user
+from Database.MongoDB.rides import add_rides
 
 client_bp = Blueprint("client", __name__, template_folder="templates")
 bcrypt = Bcrypt()
@@ -29,12 +30,8 @@ def client():
 @client_bp.route("/ride", methods=['POST'])
 @login_required
 def handle_ride_data():
-    data = request.form
-    # Process the data as needed
-    print('Received data:', data)
-    return 'Data received successfully'
-
-# @socketio.on('ride_request')
-# def handle_ride_request(data):
-#     # Broadcast the ride request to all connected drivers
-#     socketio.emit('new_ride_request', data, namespace='/drivers')
+    data = request.get_json()
+    print(data)
+    ride_id = add_rides(current_user.id, data.get('pickup'), data.get('dropoff'))
+    print(ride_id)
+    return jsonify({'ride_id': str(ride_id)})
