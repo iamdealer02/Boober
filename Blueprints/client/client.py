@@ -25,13 +25,22 @@ def register():
 @client_bp.route("/")
 @login_required
 def client():
-    return render_template('client.html')
+    if current_user.role == 'client':
+        return render_template('client.html')
 
 @client_bp.route("/ride", methods=['POST'])
 @login_required
 def handle_ride_data():
-    data = request.get_json()
-    print(data)
-    ride_id = add_rides(current_user.id, data.get('pickup'), data.get('dropoff'))
-    print(ride_id)
-    return jsonify({'ride_id': str(ride_id)})
+    if current_user.role == 'client':
+        data = request.get_json()
+        print(data)
+        ride_id = add_rides(current_user.id, data.get('pickup'), data.get('dropoff'))
+        print(ride_id)
+        return jsonify({'ride_id': str(ride_id)})
+
+
+@client_bp.route("/ride/<ride_id>", methods=['GET'])
+@login_required
+def client_ride(ride_id):
+    if current_user.role == 'client':
+        return render_template('clientRide.html')

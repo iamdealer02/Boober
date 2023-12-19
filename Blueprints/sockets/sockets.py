@@ -20,10 +20,13 @@ def handle_connect():
         join_room(room_name)
         emit('message', {'data': f'Connected as driver ', 'room': room_name})
     
-    # the clients are connected here and emits the data to the frontend
-    else:
-        print('Client connected')
-        emit('message', {'data': 'Client Connected'},broadcast=True)
+@socketio.on('connectClient', namespace='/sockets')
+def handle_connect_client(ride_id):
+    room_name = ride_id['ride_id']
+    print('Client_room_name is : ', room_name)
+    join_room(room_name)
+    socketio.emit('Client_message', {'data': 'Client Connected'},room=room_name)
+
 
 
 @socketio.on('ride_request', namespace='/sockets')
@@ -34,7 +37,6 @@ def handle_ride_request(data):
     message = data.get('message', None)
     message['client_id'] = current_user.id
     print(room_name, message)
-    print('role : ',current_user.role)
     if room_name and message :
         print('Emitting message to room:', room_name)
         # sending the message to everyone in the room 
@@ -47,3 +49,20 @@ def handle_accepted_ride(ride_id):
     vehicle_type = get_vehicle_type(current_user.id)
     room_name = f'driver_{vehicle_type}'
     socketio.emit('ride_accepted', {'message': message}, room=room_name, namespace='/sockets')
+
+    client_room_name = ride_id['ride_id']
+    socketio.emit('ride_accepted_client', {'message': message}, room=client_room_name, namespace='/sockets')
+
+
+
+@socketio.on('ride_started', namespace="/sockets")
+def handle_ride(ride_id):
+    # join the client and the driver here 
+    # the driver will join the client room and the client will be redirected 
+    if current_user.role == 'driver':
+        room_name = ride_id['ride_id']
+        join_room(room_name)
+    
+    
+
+    

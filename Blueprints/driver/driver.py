@@ -28,40 +28,38 @@ def register():
 @driver_bp.route("/", methods=['GET'])
 @login_required
 def driver():
-    print(form_filled(current_user.id))
-    if form_filled(current_user.id):
-        return redirect(url_for('driver.driver_space'))
-    return render_template('driver.html')
+    if current_user.role == 'driver':
+        if form_filled(current_user.id):
+            return redirect(url_for('driver.driver_space'))
+        return render_template('driver.html')
 
 @driver_bp.route("/workspace", methods=['GET'])
 @login_required
 def driver_space():
-    print(is_verified(current_user.id))
-    if is_verified(current_user.id):
-        print('has filled the form and is verified')
-        return render_template('workspace.html')
-    return render_template('driverView.html')
+    if current_user.role == 'driver':
+        if is_verified(current_user.id):
+            return render_template('workspace.html')
+        return render_template('driverView.html')
 
 @driver_bp.route("/information", methods=['POST'])
 @login_required
 def driver_information():
 # do it later
-    id = current_user.id
-    email=current_user.email
-    driveCity = request.form.get('city')
-    print(driveCity)
-    vehicleType = request.form.get('vehicleType')
-    print(vehicleType)
-    identity_file = request.files.get('identity')
-    driver_photo = request.files.get('photo')
-    kbis_file = request.files.get('Kbis')
-    license = request.files.get('license')
-    vehicle_photo = request.files.get('vehicle')
-    birthCertificate = request.files.get('dob')
-        
-    # print(id, email, driveCity, vehicleType, identity_file, driver_photo,kbis_file, license, vehicle_photo,birthCertificate)
-    add_driver_details(id, email, driveCity, vehicleType, identity_file, driver_photo,kbis_file, license, vehicle_photo,birthCertificate)
-    return redirect(url_for('driver.driver_space'))
+    if current_user.role == 'driver':
+        id = current_user.id
+        email=current_user.email
+        driveCity = request.form.get('city')
+        vehicleType = request.form.get('vehicleType')
+        identity_file = request.files.get('identity')
+        driver_photo = request.files.get('photo')
+        kbis_file = request.files.get('Kbis')
+        license = request.files.get('license')
+        vehicle_photo = request.files.get('vehicle')
+        birthCertificate = request.files.get('dob')
+            
+        # print(id, email, driveCity, vehicleType, identity_file, driver_photo,kbis_file, license, vehicle_photo,birthCertificate)
+        add_driver_details(id, email, driveCity, vehicleType, identity_file, driver_photo,kbis_file, license, vehicle_photo,birthCertificate)
+        return redirect(url_for('driver.driver_space'))
 
 # display a notification in driver space if any request has been made and if any driver has accepted it
 @driver_bp.route("/accept_ride/<ride_id>", methods=['POST'])
@@ -69,17 +67,17 @@ def driver_information():
 def accept_ride(ride_id):
 # do it later
     # the ride has been accepted
-    print(ride_id, current_user.id)
-    assign_driver(ride_id, current_user.id)
-    print('assigning driver')
-    return 'Accepted'
+    if current_user.role == 'driver':
+        assign_driver(ride_id, current_user.id)
+        return 'Accepted'
     
 
 # if the driver has accepted the ride
 @driver_bp.route("/ride/<ride_id>", methods=['GET'])
 @login_required
 def riding(ride_id):
-    # make sure only the driver related to the ride  can access this 
-    return 'WELCOME'
+    # make sure only the driver related to the ride  can access this
+    if current_user.role == 'driver':
+        return render_template('driverRide.html')
     
     

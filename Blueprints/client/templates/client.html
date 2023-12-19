@@ -784,12 +784,28 @@ function SendData() {
                 }
             console.log('Ride data is : ',rideData)
                 //receiving the message from the event
-            socket.on('connect', function(){
-                socket.on('message', function(data){
-                    console.log(' Server has started : ', data['data']);
-                })
-                socket.emit('ride_request', {room_name: `driver_${vehicleType}`, message: rideData})
+            // Emit the 'connectClient' event to the server with the ride_id
+            socket.emit('connectClient', { ride_id: ride_id });
+
+            // Handle the 'Client_message' event from the server
+            socket.on('Client_message', function(data) {
+                console.log('Received message from server:', data.data);
             })
+            socket.emit('ride_request', {room_name: `driver_${vehicleType}`, message: rideData})
+
+
+            // checks if your ride has been accepted
+            socket.on('ride_accepted_client', function(data) {
+                    console.log('Ride accepted:', data.message);
+                    // Handle the ride acceptance update, e.g., display a message or redirect
+                    //remove it from the  division
+                    console.log('checking')
+                    if (data.message.status == 'Accepted'){
+                        ride_id =  data.message.ride_id
+                        window.location.href = `/client/ride/${ride_id}`;
+
+                    }
+            });
         },
         error: function(error) {
             // Handle errors
@@ -797,17 +813,8 @@ function SendData() {
         }
     });
 }
-// checks if your ride has been accepted
-socket.on('ride_accepted', function(data) {
-        console.log('Ride accepted:', data.message);
-        // Handle the ride acceptance update, e.g., display a message or redirect
-        //remove it from the  division
-        if (data.message.status == 'Accepted'){
-            console.log(data.message.ride_id)
-            console.log('YOUR RIDE HAS BEEN ACCEPTED')
-            
-        }
-})
+
     </script>
+
 </body>
 </html>

@@ -60,10 +60,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-
+        var socket;
 
     function SendData() {
-    var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
+    socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
     var rideRequestContainer = document.getElementById('ride_request_container');
     socket.on('connect', function(){
         socket.on('message', function(data){
@@ -114,23 +114,26 @@
 }
 function acceptRequest(ride_id) {
     console.log('accepting ride')
-    var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
     socket.emit('ride_accepted', { ride_id: ride_id });
     // EMIT THE DATA 
     console.log('emiting the data that ride has been accepted')
-    // send the accept request in the database
-    $.ajax({
+    sendingAcceptData(ride_id);
+
+}
+function sendingAcceptData(ride_id){
+        // send the accept request in the database
+        $.ajax({
         type: 'POST',
         url: `/driver/accept_ride/${ride_id}`, // Replace with the actual URL of your backend endpoint  `
         success: function(data) {
-            // window.location.href = `driver/ride/${ride_id}`;
             console.log('accepted')
+            window.location.href = `/driver/ride/${ride_id}`;
+            
         },
         error: function(error) {
             console.error('Error sending data:', error);
         }
     });
-
 }
 
     </script>
