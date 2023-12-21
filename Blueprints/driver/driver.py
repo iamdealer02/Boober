@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for,session,jsonify
 from flask_login import login_required, current_user
 from Database.MongoDB.driver import add_driver_details, is_verified,form_filled
-from Database.MongoDB.rides import assign_driver
+from Database.MongoDB.rides import assign_driver,get_ride_details,get_otp,update_status,get_ride_status
+from Helpers.OTP.otp import verify_otp
 from Database.SQL.client import add_user
 from Class.authentication.classes import RegistrationForm
 from flask_bcrypt import Bcrypt
@@ -76,8 +77,28 @@ def accept_ride(ride_id):
 @driver_bp.route("/ride/<ride_id>", methods=['GET'])
 @login_required
 def riding(ride_id):
+    # we need the ride pickup and dropoff location
+    # also the otp verification
     # make sure only the driver related to the ride  can access this
+    ride_data = get_ride_details(ride_id)
+    session['driver_satus'] = 'busy'
+    session['ride_id'] = ride_id
+    ride_status = get_ride_status(ride_id)
     if current_user.role == 'driver':
-        return render_template('driverRide.html')
+        return render_template('driverRide.html',ride_data = ride_data, status = ride_status)
     
+@driver_bp.route("/ride/<ride_id>/<otp>", methods=['POST'])
+@login_required
+def verify_otp_db(ride_id,otp):
+    og_otp = get_otp(ride_id)
+    response = verify_otp(otp, og_otp)
+    # ride has started
+    update_status('Started',ride_id)
+    print(response)
+    if response:
+            return jsonify({'success': True, 'message': 'OTP verification successful'})
+    else:
+        return jsonify({'success': False, 'message': 'OTP verification failed'})
+    
+
     

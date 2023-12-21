@@ -59,6 +59,9 @@
         .navbar {
             background-color: black;
         }
+        i{
+            height: 20px;
+        }
         .selection-board {
             width: 1200px;
             
@@ -103,6 +106,7 @@
            
        
         }
+
         .green:hover{
             cursor: pointer;
             background-color: #f7f7f7;
@@ -135,10 +139,7 @@
             /* Increase the height as needed */
             margin-bottom: 200px;
             display: none;
-            width: fit-content;
-           
-            
-            
+            width: fit-content;        
            
         }
         @keyframes fadeInRight {
@@ -260,6 +261,10 @@ async function initMap() {
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon bg-dark"></span>
         </button>
+        <div class="ml-auto">
+            <!-- Your profile button goes here -->
+            <button class="btn bg-light rounded-circle profile"><i class="fas fa-user-circle"></i> </button>
+        </div>
     </nav>
     <div class="container ">
             <div class="d-flex flex-column flex-lg-row   justify-content-between log" style="height: 100vh;">

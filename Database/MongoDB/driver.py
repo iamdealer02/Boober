@@ -1,7 +1,8 @@
 from pymongo import MongoClient
 from datetime import datetime
 from gridfs import GridFS
-
+from bson import ObjectId
+from io import BytesIO 
 # Create a new client and connect to the server
 client = MongoClient("mongodb://localhost:27017")
 
@@ -18,7 +19,7 @@ except Exception as e:
     print(e)
 
 
-def add_driver_details(id, email, driveCity, vehicleType, identity, photo, kbis, license, vehicle_photo, birthCertificate):
+def add_driver_details(id,fname,lname, email, driveCity, vehicleType, identity, photo, kbis, license, vehicle_photo, birthCertificate):
     print("adding the driver")
     posted_at = datetime.utcnow().date().isoformat()
 
@@ -32,6 +33,8 @@ def add_driver_details(id, email, driveCity, vehicleType, identity, photo, kbis,
 
     driver = {
         'Sqlid': id,
+        'Firstname': fname,
+        'Lastname' : lname,
         'Email': email,
         'DriveCity': driveCity,
         'VehicleType': vehicleType,
@@ -65,4 +68,26 @@ def form_filled(id):
 def get_vehicle_type(id):
     driver_details = collection.find_one({'Sqlid': id})
     return driver_details['VehicleType'].split('-')[1]
+
+def get_Driver_Pic(sql_id):
+    profile= collection.find_one({'sql_id': sql_id})
+
+    media = fs.get(ObjectId(profile['profilePic']))
+    if media:
+        result = BytesIO(media.read()), 'image/jpeg'
+        return result
+    else:
+        return None
+
+def get_driver_details(id):
+    driver_details = collection.find_one({'Sqlid': id})
+    if driver_details:
+        # photo_id = driver_details.get('Driver_Photo_id')
+        # photo = get_Driver_Pic(photo_id)
+        fname = driver_details.get('Firstname')
+        lname = driver_details.get('Lastname')
+        return [None, fname, lname]
+    else:
+        return [None, None, None]
+
 

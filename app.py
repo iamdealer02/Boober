@@ -5,7 +5,6 @@ from flask_babel import *
 from Database.SQL.client import get_user_by_id
 from Class.authentication.classes import User
 from flask_login import LoginManager
-from flask_socketio import SocketIO
 
 # getting the blueprints
 from Blueprints.home.home import home_bp
@@ -14,6 +13,7 @@ from Blueprints.client.client import client_bp
 from Blueprints.driver.driver import driver_bp
 from Blueprints.map.map import map_bp
 from Blueprints.sockets.sockets import sockets_bp, socketio
+
 
 app = Flask(__name__)
 
@@ -46,8 +46,6 @@ app.register_blueprint(client_bp,url_prefix="/client")
 app.register_blueprint(driver_bp,url_prefix="/driver")
 app.register_blueprint(map_bp)
 app.register_blueprint(sockets_bp)
-
-
 
 
 

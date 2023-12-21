@@ -52,6 +52,36 @@ def update_status(status, ride_id):
     ride_id = ObjectId(ride_id)
     collection.update_one({'_id': ride_id}, {'$set': {'status': status}})
 
-def get_recent_rides():
-    # returns the recent rides
-     collection.find().sort('made_at', -1).limit(10)
+def get_ride_status(ride_id):
+    ride_id = ObjectId(ride_id)
+    ride_data = collection.find_one({'_id': ride_id})
+    status = ride_data.get('status') if ride_data else None
+    return status
+
+def get_otp(ride_id):
+    ride_id = ObjectId(ride_id)
+    ride_data = collection.find_one({'_id': ride_id})
+    otp = ride_data.get('otp') if ride_data else None
+    return(otp)
+
+def add_otp(ride_id, otp):
+    ride_id = ObjectId(ride_id)
+    
+    # Assuming 'collection' is your PyMongo collection object
+    collection.update_one(
+        {'_id': ride_id},
+        {'$set': {'otp': otp}}
+    )
+    return 1
+
+def get_driver_id(ride_id):
+    ride_id = ObjectId(ride_id)
+    ride_data = collection.find_one({'_id': ride_id})
+    driver_id = ride_data.get('driver_id') if ride_data else None
+    
+    return driver_id
+
+def get_ride_details(ride_id):
+    ride_id = ObjectId(ride_id)
+    ride_data = collection.find_one({'_id': ride_id})
+    return(ride_data)

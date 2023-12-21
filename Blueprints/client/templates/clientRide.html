@@ -3,23 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ride Details</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <style>
+        .driver-details{
+            padding: auto;
+        }
+        .trip-details{
+            border: solid rgb(210, 207, 207) 1px;
+            border-radius: 1%;
+            padding: 3%;
+        }
+        .vertical-line {
+        width: 2px; /* Adjust the width of the vertical line */
+        height: 70px; /* Adjust the height of the vertical line */
+        background-color: #000; /* Adjust the color of the vertical line */
+        margin-left: 3%;
+        
+    }
+    .pickup{
+        width: 90%;
+    }
+    .dropoff{
+        width: 90%;
+    }
+    .digit-box{
+        height: max-content;
+        font-size: larger;
+        padding: 3%;
+    }
+    .otp{
+        border: solid rgb(210, 207, 207) 1px;
+        border-radius: 1%;
+        padding: 3%;
+     
+
+    }
+    .chat{
+        height: 50px;
+    }
+    #chat-circle {
+  position: fixed;
+  bottom: 80px;
+  left: 150px;
+  color: white;
+  padding: 28px;
+  cursor: pointer;
+  
+}
+
+.btn#my-btn {
+     background: white;
+    padding-top: 13px;
+    padding-bottom: 12px;
+    border-radius: 45px;
+    padding-right: 40px;
+    padding-left: 40px;
+    color: #538cdd;
+}
+#chat-overlay {
+    background: rgba(255,255,255,0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: none;
+}
+
+
+.chat-box {
+  display:none;
+  background: #efefef;
+  position:fixed;
+  bottom: 80px;
+  left: 150px;
+  width:350px;
+  max-width: 85vw;
+  max-height:100vh;
+  border-radius:5px;  
+/*   box-shadow: 0px 5px 35px 9px #464a92; */
+  box-shadow: 0px 5px 35px 9px #ccc;
+}
+.chat-box-toggle {
+  float:right;
+  margin-right:15px;
+  cursor:pointer;
+}
+.chat-box-header {
+  background:  #75afe6;
+  height:50px;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px; 
+  color:white;
+  text-align:center;
+  font-size:20px;
+  padding-top:17px;
+}
+.chat-box-body {
+  position: relative;  
+  height:370px;  
+  height:auto;
+  border:1px solid #ccc;  
+  overflow: hidden;
+}
+.chat-box-body:after {
+  content: "";
+  background-color: white;
+  opacity: 0.1;;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height:100%;
+  position: absolute;
+  z-index: -1;   
+}
+#chat-input {
+  background: #f4f7f9;
+  width:100%; 
+  position:relative;
+  height:47px;  
+  padding-top:10px;
+  padding-right:50px;
+  padding-bottom:10px;
+  padding-left:15px;
+  border:none;
+  resize:none;
+  outline:none;
+  border:1px solid #ccc;
+  color:#888;
+  border-top:none;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px;
+  overflow:hidden;  
+}
+.chat-input > form {
+    margin-bottom: 0;
+}
+#chat-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ccc;
+}
+#chat-input::-moz-placeholder { /* Firefox 19+ */
+  color: #ccc;
+}
+#chat-input:-ms-input-placeholder { /* IE 10+ */
+  color: #ccc;
+}
+#chat-input:-moz-placeholder { /* Firefox 18- */
+  color: #ccc;
+}
+.chat-submit {  
+  position:absolute;
+  bottom:3px;
+  right:10px;
+  background: transparent;
+  box-shadow:none;
+  border:none;
+  border-radius:50%;
+  color:#75afe6;
+  width:35px;
+  height:35px;  
+}
+.chat-logs {
+  padding:15px; 
+  height:370px;
+  overflow-y:scroll;
+}
+
+.chat-logs::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.chat-logs::-webkit-scrollbar
+{
+	width: 5px;  
+	background-color: #F5F5F5;
+}
+
+.chat-logs::-webkit-scrollbar-thumb
+{
+	background-color:#75afe6;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+   .chat-logs {
+        height:40vh;
+    }
+}
+
+.chat-msg.user > .msg-avatar img {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  float:left;
+  width:15%;
+}
+.chat-msg.self > .msg-avatar img {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  float:right;
+  width:15%;
+}
+.cm-msg-text {
+  background:white;
+  padding:10px 15px 10px 15px;  
+  color:#666;
+  max-width:75%;
+  float:left;
+  margin-left:10px; 
+  position:relative;
+  margin-bottom:20px;
+  border-radius:30px;
+}
+.chat-msg {
+  clear:both;    
+}
+.chat-msg.self > .cm-msg-text {  
+  float:right;
+  margin-right:10px;
+  background:#75afe6;
+  color:white;
+}
+.cm-msg-button>ul>li {
+  list-style:none;
+  float:left;
+  width:50%;
+}
+.cm-msg-button {
+    clear: both;
+    margin-bottom: 70px;
+}
+    </style>
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-o7mZ6Q9p4dYK9ij8CpFp8+MjzX2smD3l+scE4a/3UsA=" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Your function here
+        connectChat()
+    });
+    </script>
 </head>
 <body>
-    <div class="container d-flex flex-row">
-        <div class="ride-details">
-            <!-- ride details are here  -->
-            RIDE DETAILS HERE
-        </div>
-        <div class="map-board">
-            <!-- map is displayed here -->
-            MAP HERE
-        </div>
+    <div class="container d-flex flex-row justify-content-around">
+        <div class="card ride-card ">
+            <div class="card-header text-center">Your ride is arriving </div>
+            <div class="card-body">
+                <div class="ride-details">
+                    
+                        <div class="driver-details bg-light border-dark d-flex flex-row">
+                          
+                            <div class="d-flex flex-column align-items-center ">
+                                <img src='https://i.insider.com/62bc34ff2224c30018141c7b?width=1000&format=jpeg&auto=webp' class="img-fluid rounded-circle " alt="Driver Photo" s width="20%">
+                                <div class="flex flex-row">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                                
+                                <p class="mt-3 font-weight-bold " >{{ driver_details[1] }} {{ driver_details[2] }}</p>
+                            
+                            </div>
+              
+                        </div>
+                        <div class="trip-details d-flex flex-column ">
+                            <div class="d-flex flex-row justify-content-around">
+                                <i class="fas fa-location-dot mt-1"></i>
+                                <div class="pickup">
+                                    {{ ride_data['pickup_location'] }}
+                                </div>
 
+                            </div>
+                            <div class="vertical-line"></div>
+                                                   
+                            <div class="d-flex flex-row justify-content-around">
+                                <i class="fas fa-location-arrow mt-1"></i>
+                                <div class="dropoff">
+                                    {{ ride_data['dropoff_location'] }}
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="otp mt-5">
+                            <h2 class="h2 text-center">Your OTP</h2>
+                            <div class="d-flex justify-content-center">
+                                {% for digit in otp %}
+                                    <div class="digit-box mx-2  text-center bg-light border rounded" >
+                                        {{ digit }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div id="chat-circle" class="btn btn-raised">
+                            <div id="chat-overlay"></div>
+                            <img class="chat" src="https://cdn-icons-png.flaticon.com/128/724/724689.png"></button>
+
+                        </div>
+                        <div class="chat-box">
+                            <div class="chat-box-header">
+                              <span class="chat-box-toggle"><i class="fas fa-close"></i></span>
+                            </div>
+                            <div class="chat-box-body">
+                              <div class="chat-box-overlay">   
+                              </div>
+                              <div class="chat-logs">
+                               
+                              </div><!--chat-log -->
+                            </div>
+                            <div class="chat-input">      
+                              <form>
+                                <input type="text" id="chat-input" placeholder="Send a message..."/>
+                              <button type="submit" class="chat-submit" id="chat-submit"><i class="fas fa-paper-plane"></i></button>
+                              </form>      
+                            </div>
+                          </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="map-board ml-3">
+            <iframe
+            width="600"
+            height="700"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc
+            &q=Space+Needle,Seattle+WA">
+            </iframe>    
+        </div>
     </div>
+    
+    <script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
+    document.addEventListener('DOMContentLoaded', function(){
+        socket.on('Client_message', function(data) {
+            console.log('Received message from server:', data.data);
+            ride_id = "{{ride_data['_id']}}"
+            socket.emit('connectClient', { ride_id: ride_id });
+            console.log()
+            // Handle the message as needed
+        });
+        socket.on('personal_chat_receiver', function(data){
+        console.log('gotta message')
+        generate_message(data.message, 'user')
+    });
+    });
 
+        function sendMessage(message){
+            // connect 
+            ride_id = "{{ride_data['_id']}}"
+            socket.emit('personal_chat', { ride_id: ride_id, message: message });
+        }
+        $(function() {
+        var INDEX = 0; 
+        $("#chat-submit").click(function(e) {
+            e.preventDefault();
+            var msg = $("#chat-input").val(); 
+            if(msg.trim() == ''){
+            return false;
+            }
+            generate_message(msg, 'self');
+         
+            // send this message to the socket from here
+          
+            sendMessage(msg)
+            var buttons = [
+                {
+                name: 'Existing User',
+                value: 'existing'
+                },
+                {
+                name: 'New User',
+                value: 'new'
+                }
+            ];
+            
+            
+        })
+        
+        function generate_message(msg, type) {
+            // function to add message in the board :
+            INDEX++;
+            var str="";
+            str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg "+type+"\">";
+            str += "          <span class=\"msg-avatar\">";
+            str += "            <img src=\"https:\/\/image.crisp.im\/avatar\/operator\/196af8cc-f6ad-4ef7-afd1-c45d5231387c\/240\/?1483361727745\">";
+            str += "          <\/span>";
+            str += "          <div class=\"cm-msg-text\">";
+            str += msg;
+            str += "          <\/div>";
+            str += "        <\/div>";
+            $(".chat-logs").append(str);
+            $("#cm-msg-"+INDEX).hide().fadeIn(300);
+            if(type == 'self'){
+            $("#chat-input").val(''); 
+            }    
+            $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);    
+        }  
+        
+        function generate_button_message(msg, buttons){    
+            /* Buttons should be object array 
+            [
+                {
+                name: 'Existing User',
+                value: 'existing'
+                },
+                {
+                name: 'New User',
+                value: 'new'
+                }
+            ]
+            */
+            INDEX++;
+            var btn_obj = buttons.map(function(button) {
+            return  "              <li class=\"button\"><a href=\"javascript:;\" class=\"btn btn-primary chat-btn\" chat-value=\""+button.value+"\">"+button.name+"<\/a><\/li>";
+            }).join('');
+            var str="";
+            str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg user\">";
+            str += "          <span class=\"msg-avatar\">";
+            str += "            <img src=\"https:\/\/image.crisp.im\/avatar\/operator\/196af8cc-f6ad-4ef7-afd1-c45d5231387c\/240\/?1483361727745\">";
+            str += "          <\/span>";
+            str += "          <div class=\"cm-msg-text\">";
+            str += msg;
+            str += "          <\/div>";
+            str += "          <div class=\"cm-msg-button\">";
+            str += "            <ul>";   
+            str += btn_obj;
+            str += "            <\/ul>";
+            str += "          <\/div>";
+            str += "        <\/div>";
+            $(".chat-logs").append(str);
+            $("#cm-msg-"+INDEX).hide().fadeIn(300);   
+            $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);
+            $("#chat-input").attr("disabled", true);
+        }
+        
+        $(document).delegate(".chat-btn", "click", function() {
+            var value = $(this).attr("chat-value");
+            var name = $(this).html();
+            $("#chat-input").attr("disabled", false);
+            generate_message(name, 'self');
+        })
+        
+        $("#chat-circle").click(function() {    
+            $("#chat-circle").toggle('scale');
+            $(".chat-box").toggle('scale');
+        })
+        
+        $(".chat-box-toggle").click(function() {
+            $("#chat-circle").toggle('scale');
+            $(".chat-box").toggle('scale');
+        })
+        
+        })
+
+    </script>
 </body>
 </html>
