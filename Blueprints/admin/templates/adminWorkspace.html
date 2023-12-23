@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+                .navbar {
+            background-color: black;
+        }
+        .profile{
+            height: 50px;
+            cursor: pointer;
+        }
+        .driver-names{
+            width: 150vh;
+            padding: 2%;
+            border: solid rgb(190, 181, 181) 1px;
+            margin: 0 auto;
+        }
+        .sidenav {
+        height: 100%;
+        width: 200px;
+        margin-top: 82px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        padding-top: 20px;
+    }
+
+    .sidenav a {
+        padding: 15px 8px 15px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+        margin-left: 250px; /* Adjust this value to leave space for the side panel */
+        padding: 16px;
+    }
+    /* Main Content Styles */
+    .main-content {
+        margin-left: 250px; /* Adjust this value to match the width of your side panel */
+        padding: 16px;
+    }
+ 
+    </style>
+</head>
+
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+        <div class="ml-auto mr-5">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" class="img-fluid rounded-circle profile" alt="Profile Image">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">/a>
+                    <a class="dropdown-item" href="">b</a>
+                </div>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="sidenav">
+        <a href="/admin" class="font-weight-bolder">DRIVER REQUESTS</a>
+        <a href="/admin/routes" class="font-weight-bolder" >ROUTES </a>
+        <a href="/admin/performance" class="font-weight-bolder" > ROUTE PERFORMANCES </a>
+        <!-- Add more options as needed -->
+    </div>
+    <div>
+        <div>
+            <h3 class="h3 text-center font-weight-bolder mb-3"> VERIFY NEW DRIVERS </h3>
+            <h5 class="h5 text-center font-weight-bolder mb-5"> VIEW DRIVER REQUESTS HERE : </h5>
+        </div>
+        
+        <div class="driver-names">
+            <ul class="none list-group">
+                {% for driver in drivers %}
+                <li class="list-group-item d-flex flex-row justify-content-around">
+                    <div>    {{driver['Firstname']}}
+                        {{driver['Lastname']}}</div>
+                        <div>{{driver['Email']}}</div>
+                    <div>{{driver['DriveCity']}}</div>
+                    
+                    <a href="/admin/driverFile/{{driver['_id']}}"><button class="btn btn-info ">View</button></a> 
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        
+    </div>
+
+    
+</body>
+</html>

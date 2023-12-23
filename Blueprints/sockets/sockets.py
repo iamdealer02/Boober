@@ -12,18 +12,18 @@ socketio = SocketIO()
 def handle_connect():
     print(current_user.role)
     if current_user.role == 'driver':
-        if session['driver_satus']:
-                room_name = session['ride_id']
-                print('Client_room_name is : ', room_name)
-                join_room(room_name)
-                socketio.emit('Driver_message', {'data': 'Client Connected'},room=room_name)
-        # if the current user is a driver I make them join a specific room to broadcast ride request message
-        else:
-            vehicle_type = get_vehicle_type(current_user.id)
-            room_name = f'driver_{vehicle_type}'
-            join_room(room_name)
-            emit('message', {'data': f'Connected as driver ', 'room': room_name})
-    
+        # if session['driver_satus']:
+        #         room_name = session['ride_id']
+        #         print('Client_room_name is : ', room_name)
+        #         join_room(room_name)
+        #         socketio.emit('Driver_message', {'data': 'Client Connected'},room=room_name)
+        # # if the current user is a driver I make them join a specific room to broadcast ride request message
+        # else:
+        vehicle_type = get_vehicle_type(current_user.id)
+        room_name = f'driver_{vehicle_type}'
+        join_room(room_name)
+        emit('message', {'data': f'Connected as driver ', 'room': room_name})
+
 @socketio.on('connectClient', namespace='/sockets')
 def handle_connect_client(ride_id):
     room_name = ride_id['ride_id']

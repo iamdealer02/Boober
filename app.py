@@ -13,13 +13,14 @@ from Blueprints.client.client import client_bp
 from Blueprints.driver.driver import driver_bp
 from Blueprints.map.map import map_bp
 from Blueprints.sockets.sockets import sockets_bp, socketio
-
+from Blueprints.admin.admin import admin_bp
 
 app = Flask(__name__)
 
 
 
 app.secret_key = 'upasana12345'
+app.debug = True
 
 
 
@@ -33,11 +34,15 @@ login_manager.init_app(app)
 def load_user(user_id):
     data = None
     data = get_user_by_id(user_id)
+
     if data and len(data) >= 3:
+
+
         return User(data[0],data[1],data[3])
     else:
-        print('couldnt find user laoder')
+
         return None
+    
 
 # registering all the Blueprints
 app.register_blueprint(authentication_bp)
@@ -46,6 +51,8 @@ app.register_blueprint(client_bp,url_prefix="/client")
 app.register_blueprint(driver_bp,url_prefix="/driver")
 app.register_blueprint(map_bp)
 app.register_blueprint(sockets_bp)
+app.register_blueprint(admin_bp, url_prefix = "/admin")
+
 
 
 
@@ -55,7 +62,7 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-
 if __name__ == '__main__':
     socketio.init_app(app)
     socketio.run(app, debug=True)
+    

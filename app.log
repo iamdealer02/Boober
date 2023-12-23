@@ -1,0 +1,602 @@
+2023-12-23 22:16:09,029 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-23 22:16:09,029 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-23 22:16:09,030 [INFO] -  * Restarting with stat
+2023-12-23 22:16:09,666 [WARNING] -  * Debugger is active!
+2023-12-23 22:16:09,668 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:16:17,717 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:17] "GET /admin/routes HTTP/1.1" 200 -
+2023-12-23 22:16:22,232 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:22] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:16:22,860 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:22] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:16:26,478 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:26] "[35m[1mGET /logout HTTP/1.1[0m" 500 -
+2023-12-23 22:16:26,559 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:26] "GET /logout?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2023-12-23 22:16:26,559 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:26] "GET /logout?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2023-12-23 22:16:26,591 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:26] "GET /logout?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2023-12-23 22:16:26,600 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:26] "[36mGET /logout?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-12-23 22:16:35,418 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:16:35] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:17:43,447 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\authentication\\authentication.py', reloading
+2023-12-23 22:17:43,642 [INFO] -  * Restarting with stat
+2023-12-23 22:17:44,267 [WARNING] -  * Debugger is active!
+2023-12-23 22:17:44,269 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:17:48,197 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:17:48] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:17:52,512 [INFO] - User Logged out
+2023-12-23 22:17:52,513 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:17:52] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-23 22:17:52,517 [INFO] - Route: /, Time: 0.0
+2023-12-23 22:17:52,522 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:17:52] "GET / HTTP/1.1" 200 -
+2023-12-23 22:18:19,135 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:18:19] "[32mGET /client/ HTTP/1.1[0m" 302 -
+2023-12-23 22:18:19,148 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:18:19] "GET /login?next=/client/ HTTP/1.1" 200 -
+2023-12-23 22:18:28,771 [INFO] - User {email} Logged in
+2023-12-23 22:18:28,772 [INFO] - Login time: 0.254457950592041
+2023-12-23 22:18:28,772 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:18:28] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-23 22:18:28,786 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:18:28] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 22:18:54,871 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\authentication\\authentication.py', reloading
+2023-12-23 22:18:55,224 [INFO] -  * Restarting with stat
+2023-12-23 22:18:55,830 [WARNING] -  * Debugger is active!
+2023-12-23 22:18:55,832 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:19:05,342 [INFO] - User Logged out
+2023-12-23 22:19:05,343 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:05] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-23 22:19:05,348 [INFO] - Route: /, Time: 0.0
+2023-12-23 22:19:05,354 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:05] "GET / HTTP/1.1" 200 -
+2023-12-23 22:19:10,793 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:10] "[32mGET /client/ HTTP/1.1[0m" 302 -
+2023-12-23 22:19:10,804 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:10] "GET /login?next=/client/ HTTP/1.1" 200 -
+2023-12-23 22:19:18,702 [INFO] - User sharmaupasana823@gmail.com Logged in
+2023-12-23 22:19:18,703 [INFO] - Login time: 0.23482537269592285
+2023-12-23 22:19:18,704 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:18] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-23 22:19:18,713 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:18] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 22:19:39,769 [INFO] - User Logged out
+2023-12-23 22:19:39,770 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:39] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-23 22:19:39,774 [INFO] - Route: /, Time: 0.0
+2023-12-23 22:19:39,775 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:39] "GET / HTTP/1.1" 200 -
+2023-12-23 22:19:42,861 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:42] "GET /driver/register HTTP/1.1" 200 -
+2023-12-23 22:19:45,062 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:45] "GET /login HTTP/1.1" 200 -
+2023-12-23 22:19:50,954 [INFO] - User 890divyansh@gmail.com Logged in
+2023-12-23 22:19:50,954 [INFO] - Login time: 0.2519111633300781
+2023-12-23 22:19:50,954 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:50] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-23 22:19:50,963 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:50] "[32mGET /driver/ HTTP/1.1[0m" 302 -
+2023-12-23 22:19:50,967 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:19:50] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:20:24,598 [INFO] - User 890divyansh@gmail.com Logged in
+2023-12-23 22:20:24,598 [INFO] - Login time: 0.21698236465454102
+2023-12-23 22:20:24,598 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:20:24] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-23 22:20:24,604 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:20:24] "[32mGET /driver/ HTTP/1.1[0m" 302 -
+2023-12-23 22:20:24,609 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:20:24] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:20:26,626 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:20:26] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:20:27,450 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:20:27] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:21:01,166 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:01] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:21:01,200 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:01] "GET /socket.io/?EIO=4&transport=polling&t=OoOZOSD HTTP/1.1" 200 -
+2023-12-23 22:21:01,212 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:01] "GET /socket.io/?EIO=4&transport=polling&t=OoOZOSJ&sid=yGJiXnAsfCGbhJH2AAAA HTTP/1.1" 200 -
+2023-12-23 22:21:01,208 [ERROR] - message handler error
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 823, in _handle_event
+    ret = handler(auth)
+          ^^^^^^^^^^^^^
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\engineio\server.py", line 431, in run_handler
+    return self.handlers[event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 642, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 532, in _handle_connect
+    success = self._trigger_event(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 609, in _trigger_event
+    return self.handlers[namespace][event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 282, in _handler
+    return self._handle_event(handler, message, namespace, sid,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 825, in _handle_event
+    ret = handler()
+          ^^^^^^^^^
+  File "c:\Users\sharm\OneDrive\Desktop\PROJECTS\Flask Project\Blueprints\sockets\sockets.py", line 15, in handle_connect
+    if session['driver_satus']:
+       ~~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'driver_satus'
+2023-12-23 22:21:01,214 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:01] "POST /socket.io/?EIO=4&transport=polling&t=OoOZOSH&sid=yGJiXnAsfCGbhJH2AAAA HTTP/1.1" 200 -
+2023-12-23 22:21:33,804 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:33] "[33mPOST /google/geocode HTTP/1.1[0m" 404 -
+2023-12-23 22:21:37,370 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:37] "GET /socket.io/?EIO=4&transport=polling&t=OoOZXHK HTTP/1.1" 200 -
+2023-12-23 22:21:37,372 [INFO] - Route: /ride, Time: 0.001999378204345703
+2023-12-23 22:21:37,372 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:37] "POST /client/ride HTTP/1.1" 200 -
+2023-12-23 22:21:37,376 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:37] "POST /socket.io/?EIO=4&transport=polling&t=OoOZXHS&sid=M-Ue3QsMkuoBAUvpAAAC HTTP/1.1" 200 -
+2023-12-23 22:21:37,376 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:37] "GET /socket.io/?EIO=4&transport=polling&t=OoOZXHT&sid=M-Ue3QsMkuoBAUvpAAAC HTTP/1.1" 200 -
+2023-12-23 22:21:46,079 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "GET /socket.io/?EIO=4&transport=polling&t=OoOZZPR HTTP/1.1" 200 -
+2023-12-23 22:21:46,081 [INFO] - Route: /ride, Time: 0.0020012855529785156
+2023-12-23 22:21:46,081 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "POST /client/ride HTTP/1.1" 200 -
+2023-12-23 22:21:46,085 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "POST /socket.io/?EIO=4&transport=polling&t=OoOZZPX&sid=e7oGOc77bVF9wqb3AAAE HTTP/1.1" 200 -
+2023-12-23 22:21:46,086 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "GET /socket.io/?EIO=4&transport=polling&t=OoOZZPY&sid=e7oGOc77bVF9wqb3AAAE HTTP/1.1" 200 -
+2023-12-23 22:21:46,673 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "GET /socket.io/?EIO=4&transport=polling&t=OoOZZYi HTTP/1.1" 200 -
+2023-12-23 22:21:46,674 [INFO] - Route: /ride, Time: 0.0009949207305908203
+2023-12-23 22:21:46,679 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "POST /client/ride HTTP/1.1" 200 -
+2023-12-23 22:21:46,680 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "GET /socket.io/?EIO=4&transport=polling&t=OoOZZYp.0&sid=eXTkZt2aox3UVWusAAAG HTTP/1.1" 200 -
+2023-12-23 22:21:46,680 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:21:46] "POST /socket.io/?EIO=4&transport=polling&t=OoOZZYp&sid=eXTkZt2aox3UVWusAAAG HTTP/1.1" 200 -
+2023-12-23 22:22:11,586 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:11] "GET /socket.io/?EIO=4&transport=polling&t=OoOZfdy HTTP/1.1" 200 -
+2023-12-23 22:22:11,590 [INFO] - Route: /ride, Time: 0.002037525177001953
+2023-12-23 22:22:11,590 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:11] "POST /client/ride HTTP/1.1" 200 -
+2023-12-23 22:22:11,595 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:11] "POST /socket.io/?EIO=4&transport=polling&t=OoOZfe5&sid=2h8ToB67Yi58WwyMAAAI HTTP/1.1" 200 -
+2023-12-23 22:22:11,595 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:11] "GET /socket.io/?EIO=4&transport=polling&t=OoOZfe6&sid=2h8ToB67Yi58WwyMAAAI HTTP/1.1" 200 -
+2023-12-23 22:22:20,726 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:20] "GET /socket.io/?EIO=4&transport=websocket&sid=yGJiXnAsfCGbhJH2AAAA HTTP/1.1" 200 -
+2023-12-23 22:22:20,738 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:20] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-23 22:22:20,825 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:20] "GET /socket.io/?EIO=4&transport=polling&t=OoOZhuB HTTP/1.1" 200 -
+2023-12-23 22:22:20,833 [ERROR] - message handler error
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 823, in _handle_event
+    ret = handler(auth)
+          ^^^^^^^^^^^^^
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\engineio\server.py", line 431, in run_handler
+    return self.handlers[event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 642, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 532, in _handle_connect
+    success = self._trigger_event(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 609, in _trigger_event
+    return self.handlers[namespace][event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 282, in _handler
+    return self._handle_event(handler, message, namespace, sid,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 825, in _handle_event
+    ret = handler()
+          ^^^^^^^^^
+  File "c:\Users\sharm\OneDrive\Desktop\PROJECTS\Flask Project\Blueprints\sockets\sockets.py", line 15, in handle_connect
+    if session['driver_satus']:
+       ~~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'driver_satus'
+2023-12-23 22:22:20,836 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:20] "POST /socket.io/?EIO=4&transport=polling&t=OoOZhuU&sid=x7BCugEnC-HK6RFzAAAK HTTP/1.1" 200 -
+2023-12-23 22:22:20,842 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:20] "GET /socket.io/?EIO=4&transport=polling&t=OoOZhuV&sid=x7BCugEnC-HK6RFzAAAK HTTP/1.1" 200 -
+2023-12-23 22:22:20,857 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:20] "GET /socket.io/?EIO=4&transport=polling&t=OoOZhul&sid=x7BCugEnC-HK6RFzAAAK HTTP/1.1" 200 -
+2023-12-23 22:22:30,755 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:30] "GET /socket.io/?EIO=4&transport=polling&t=OoOZkJT HTTP/1.1" 200 -
+2023-12-23 22:22:30,757 [INFO] - Route: /ride, Time: 0.0020041465759277344
+2023-12-23 22:22:30,757 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:30] "POST /client/ride HTTP/1.1" 200 -
+2023-12-23 22:22:30,762 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:30] "POST /socket.io/?EIO=4&transport=polling&t=OoOZkJb&sid=GHSp78NIeHume7OCAAAM HTTP/1.1" 200 -
+2023-12-23 22:22:30,762 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:22:30] "GET /socket.io/?EIO=4&transport=polling&t=OoOZkJc&sid=GHSp78NIeHume7OCAAAM HTTP/1.1" 200 -
+2023-12-23 22:23:40,515 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\sockets\\sockets.py', reloading
+2023-12-23 22:23:40,996 [INFO] -  * Restarting with stat
+2023-12-23 22:23:41,730 [WARNING] -  * Debugger is active!
+2023-12-23 22:23:41,732 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:23:41,746 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_dh HTTP/1.1" 200 -
+2023-12-23 22:23:41,758 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "POST /socket.io/?EIO=4&transport=polling&t=OoOZ_es&sid=as-uYNlNFfKlhbQ_AAAA HTTP/1.1" 200 -
+2023-12-23 22:23:41,758 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_eu&sid=as-uYNlNFfKlhbQ_AAAA HTTP/1.1" 200 -
+2023-12-23 22:23:41,766 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_f3&sid=as-uYNlNFfKlhbQ_AAAA HTTP/1.1" 200 -
+2023-12-23 22:23:41,786 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_fL HTTP/1.1" 200 -
+2023-12-23 22:23:41,795 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "POST /socket.io/?EIO=4&transport=polling&t=OoOZ_fT&sid=eQxO7y1ZSFnMuo48AAAC HTTP/1.1" 200 -
+2023-12-23 22:23:41,795 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_fU&sid=eQxO7y1ZSFnMuo48AAAC HTTP/1.1" 200 -
+2023-12-23 22:23:41,863 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_gZ HTTP/1.1" 200 -
+2023-12-23 22:23:41,873 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "POST /socket.io/?EIO=4&transport=polling&t=OoOZ_gf&sid=mjM0kxQvP3ATGuj_AAAE HTTP/1.1" 200 -
+2023-12-23 22:23:41,874 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:41] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_gg&sid=mjM0kxQvP3ATGuj_AAAE HTTP/1.1" 200 -
+2023-12-23 22:23:42,093 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_kA HTTP/1.1" 200 -
+2023-12-23 22:23:42,100 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "POST /socket.io/?EIO=4&transport=polling&t=OoOZ_kF&sid=G4JrA_zqC-ZRbPrdAAAG HTTP/1.1" 200 -
+2023-12-23 22:23:42,100 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_kG&sid=G4JrA_zqC-ZRbPrdAAAG HTTP/1.1" 200 -
+2023-12-23 22:23:42,189 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_ld HTTP/1.1" 200 -
+2023-12-23 22:23:42,197 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "POST /socket.io/?EIO=4&transport=polling&t=OoOZ_ln&sid=UR0g6qU5Wz9RZIWLAAAI HTTP/1.1" 200 -
+2023-12-23 22:23:42,197 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_lo&sid=UR0g6qU5Wz9RZIWLAAAI HTTP/1.1" 200 -
+2023-12-23 22:23:42,452 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_pm HTTP/1.1" 200 -
+2023-12-23 22:23:42,460 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "POST /socket.io/?EIO=4&transport=polling&t=OoOZ_pt&sid=kieNOQKXz9AvvOYoAAAK HTTP/1.1" 200 -
+2023-12-23 22:23:42,460 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:42] "GET /socket.io/?EIO=4&transport=polling&t=OoOZ_pu&sid=kieNOQKXz9AvvOYoAAAK HTTP/1.1" 200 -
+2023-12-23 22:23:55,802 [INFO] - Route: /ride, Time: 0.002000093460083008
+2023-12-23 22:23:55,802 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:55] "POST /client/ride HTTP/1.1" 200 -
+2023-12-23 22:23:55,805 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:55] "GET /socket.io/?EIO=4&transport=polling&t=OoOa34J HTTP/1.1" 200 -
+2023-12-23 22:23:55,812 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:55] "POST /socket.io/?EIO=4&transport=polling&t=OoOa34U&sid=uckKubBjPOsosIbFAAAM HTTP/1.1" 200 -
+2023-12-23 22:23:55,812 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:55] "GET /socket.io/?EIO=4&transport=polling&t=OoOa34V&sid=uckKubBjPOsosIbFAAAM HTTP/1.1" 200 -
+2023-12-23 22:23:58,948 [INFO] - Route: / - Time taken: 0.001508 seconds
+2023-12-23 22:23:58,948 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=kieNOQKXz9AvvOYoAAAK HTTP/1.1" 200 -
+2023-12-23 22:23:58,948 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=mjM0kxQvP3ATGuj_AAAE HTTP/1.1" 200 -
+2023-12-23 22:23:58,948 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=eQxO7y1ZSFnMuo48AAAC HTTP/1.1" 200 -
+2023-12-23 22:23:58,949 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=UR0g6qU5Wz9RZIWLAAAI HTTP/1.1" 200 -
+2023-12-23 22:23:58,949 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=uckKubBjPOsosIbFAAAM HTTP/1.1" 200 -
+2023-12-23 22:23:58,950 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=G4JrA_zqC-ZRbPrdAAAG HTTP/1.1" 200 -
+2023-12-23 22:23:58,950 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "POST /driver/accept_ride/65874feb92838ee5b5ba81d1 HTTP/1.1" 200 -
+2023-12-23 22:23:58,963 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /socket.io/?EIO=4&transport=websocket&sid=as-uYNlNFfKlhbQ_AAAA HTTP/1.1" 200 -
+2023-12-23 22:23:58,967 [INFO] - Route: /ride/65874feb92838ee5b5ba81d1, Time: 0.0035529136657714844
+2023-12-23 22:23:58,973 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /client/ride/65874feb92838ee5b5ba81d1 HTTP/1.1" 200 -
+2023-12-23 22:23:58,991 [INFO] - Route: /ride/65874feb92838ee5b5ba81d1 - Time taken: 0.004234 seconds
+2023-12-23 22:23:58,999 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:58] "GET /driver/ride/65874feb92838ee5b5ba81d1 HTTP/1.1" 200 -
+2023-12-23 22:23:59,131 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "GET /socket.io/?EIO=4&transport=polling&t=OoOa3uD HTTP/1.1" 200 -
+2023-12-23 22:23:59,148 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "GET /socket.io/?EIO=4&transport=polling&t=OoOa3ua&sid=aZOjh7fFxd232iUqAAAO HTTP/1.1" 200 -
+2023-12-23 22:23:59,149 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "POST /socket.io/?EIO=4&transport=polling&t=OoOa3uY&sid=aZOjh7fFxd232iUqAAAO HTTP/1.1" 200 -
+2023-12-23 22:23:59,159 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "GET /socket.io/?EIO=4&transport=polling&t=OoOa3uo&sid=aZOjh7fFxd232iUqAAAO HTTP/1.1" 200 -
+2023-12-23 22:23:59,210 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "GET /socket.io/?EIO=4&transport=polling&t=OoOa3va HTTP/1.1" 200 -
+2023-12-23 22:23:59,225 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "POST /socket.io/?EIO=4&transport=polling&t=OoOa3vm&sid=5ln7X0N80CFBNzj2AAAQ HTTP/1.1" 200 -
+2023-12-23 22:23:59,225 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "GET /socket.io/?EIO=4&transport=polling&t=OoOa3vo&sid=5ln7X0N80CFBNzj2AAAQ HTTP/1.1" 200 -
+2023-12-23 22:23:59,234 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:23:59] "GET /socket.io/?EIO=4&transport=polling&t=OoOa3v-&sid=5ln7X0N80CFBNzj2AAAQ HTTP/1.1" 200 -
+2023-12-23 22:24:32,620 [INFO] - Route: /ride/65874feb92838ee5b5ba81d1/84803 - Time taken: 0.002003 seconds
+2023-12-23 22:24:32,621 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:32] "POST /driver/ride/65874feb92838ee5b5ba81d1/84803 HTTP/1.1" 200 -
+2023-12-23 22:24:51,106 [INFO] - Route: /ride/65874feb92838ee5b5ba81d1/84803 - Time taken: 0.001505 seconds
+2023-12-23 22:24:51,107 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:51] "POST /driver/ride/65874feb92838ee5b5ba81d1/84803 HTTP/1.1" 200 -
+2023-12-23 22:24:52,385 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:52] "GET /socket.io/?EIO=4&transport=websocket&sid=aZOjh7fFxd232iUqAAAO HTTP/1.1" 200 -
+2023-12-23 22:24:52,414 [INFO] - Route: /ride/65874feb92838ee5b5ba81d1 - Time taken: 0.002001 seconds
+2023-12-23 22:24:52,414 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:52] "GET /driver/ride/65874feb92838ee5b5ba81d1 HTTP/1.1" 200 -
+2023-12-23 22:24:52,458 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:52] "GET /socket.io/?EIO=4&transport=polling&t=OoOaGve HTTP/1.1" 200 -
+2023-12-23 22:24:52,480 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:52] "GET /socket.io/?EIO=4&transport=polling&t=OoOaGvp&sid=sSTjtia15b63wS3PAAAS HTTP/1.1" 200 -
+2023-12-23 22:24:52,480 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:52] "POST /socket.io/?EIO=4&transport=polling&t=OoOaGvn&sid=sSTjtia15b63wS3PAAAS HTTP/1.1" 200 -
+2023-12-23 22:24:52,498 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:24:52] "GET /socket.io/?EIO=4&transport=polling&t=OoOaGwB&sid=sSTjtia15b63wS3PAAAS HTTP/1.1" 200 -
+2023-12-23 22:25:28,711 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:25:28] "GET /socket.io/?EIO=4&transport=websocket&sid=sSTjtia15b63wS3PAAAS HTTP/1.1" 200 -
+2023-12-23 22:25:28,740 [INFO] - User Logged out
+2023-12-23 22:25:28,740 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:25:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-23 22:25:28,744 [INFO] - Route: /, Time: 0.0
+2023-12-23 22:25:28,748 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:25:28] "GET / HTTP/1.1" 200 -
+2023-12-23 22:25:36,930 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:25:36] "GET /socket.io/?EIO=4&transport=websocket&sid=5ln7X0N80CFBNzj2AAAQ HTTP/1.1" 200 -
+2023-12-23 22:25:38,572 [INFO] - User Logged out
+2023-12-23 22:25:38,573 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:25:38] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-23 22:25:38,577 [INFO] - Route: /, Time: 0.0
+2023-12-23 22:25:38,578 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:25:38] "GET / HTTP/1.1" 200 -
+2023-12-23 22:26:01,724 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:26:01] "[32mGET /admin/ HTTP/1.1[0m" 302 -
+2023-12-23 22:26:01,732 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:26:01] "GET /login?next=/admin/ HTTP/1.1" 200 -
+2023-12-23 22:26:17,236 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:26:17] "GET /admin/login HTTP/1.1" 200 -
+2023-12-23 22:28:43,834 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:43] "[32mGET /admin/ HTTP/1.1[0m" 302 -
+2023-12-23 22:28:43,840 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:43] "GET /login?next=/admin/ HTTP/1.1" 200 -
+2023-12-23 22:28:49,128 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:49] "[35m[1mPOST /login?role= HTTP/1.1[0m" 500 -
+2023-12-23 22:28:49,215 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:49] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2023-12-23 22:28:49,215 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:49] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2023-12-23 22:28:49,227 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:49] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-12-23 22:28:59,368 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:28:59] "GET /admin/login HTTP/1.1" 200 -
+2023-12-23 22:29:07,112 [INFO] - Admin Logged in
+2023-12-23 22:29:07,112 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:29:07] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2023-12-23 22:29:07,121 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:29:07] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 22:29:09,470 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:29:09] "GET /admin/driverFile/6586e3fc433c2c45ef00814e HTTP/1.1" 200 -
+2023-12-23 22:29:09,500 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:29:09] "GET /admin/get_media/6586e3fc433c2c45ef008144 HTTP/1.1" 200 -
+2023-12-23 22:29:09,512 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:29:09] "GET /admin/get_media/6586e3fc433c2c45ef00811d HTTP/1.1" 200 -
+2023-12-23 22:31:57,880 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Database\\MongoDB\\driver.py', reloading
+2023-12-23 22:31:58,306 [INFO] -  * Restarting with stat
+2023-12-23 22:31:58,979 [WARNING] -  * Debugger is active!
+2023-12-23 22:31:58,981 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:32:29,229 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:32:29,396 [INFO] -  * Restarting with stat
+2023-12-23 22:32:29,959 [WARNING] -  * Debugger is active!
+2023-12-23 22:32:29,962 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:33:47,527 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:33:48,056 [INFO] -  * Restarting with stat
+2023-12-23 22:33:48,700 [WARNING] -  * Debugger is active!
+2023-12-23 22:33:48,703 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:33:49,552 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:33:49] "GET /admin/driverFile/6586e3fc433c2c45ef00814e HTTP/1.1" 200 -
+2023-12-23 22:33:49,582 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:33:49] "GET /admin/get_media/6586e3fc433c2c45ef00811d HTTP/1.1" 200 -
+2023-12-23 22:33:49,604 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:33:49] "GET /admin/get_media/6586e3fc433c2c45ef008144 HTTP/1.1" 200 -
+2023-12-23 22:33:50,822 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:33:50] "[31m[1mPOST /admin/verify/driver_id HTTP/1.1[0m" 405 -
+2023-12-23 22:34:09,883 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:34:10,129 [INFO] -  * Restarting with stat
+2023-12-23 22:35:01,896 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-23 22:35:01,896 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-23 22:35:01,896 [INFO] -  * Restarting with stat
+2023-12-23 22:35:02,462 [WARNING] -  * Debugger is active!
+2023-12-23 22:35:02,465 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:35:05,719 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:05] "GET /admin/driverFile/6586e3fc433c2c45ef00814e HTTP/1.1" 200 -
+2023-12-23 22:35:05,758 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:05] "GET /admin/get_media/6586e3fc433c2c45ef00811d HTTP/1.1" 200 -
+2023-12-23 22:35:05,760 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:05] "GET /admin/get_media/6586e3fc433c2c45ef008144 HTTP/1.1" 200 -
+2023-12-23 22:35:07,148 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:07] "[35m[1mPOST /admin/verify/driver_id HTTP/1.1[0m" 500 -
+2023-12-23 22:35:46,628 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:46] "GET /admin/driverFile/6586e3fc433c2c45ef00814e HTTP/1.1" 200 -
+2023-12-23 22:35:46,665 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:46] "GET /admin/get_media/6586e3fc433c2c45ef00811d HTTP/1.1" 200 -
+2023-12-23 22:35:46,665 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:46] "GET /admin/get_media/6586e3fc433c2c45ef008144 HTTP/1.1" 200 -
+2023-12-23 22:35:47,388 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:47] "[35m[1mPOST /admin/verify/driver_id HTTP/1.1[0m" 500 -
+2023-12-23 22:35:55,245 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:35:55] "[35m[1mPOST /admin/verify/driver_id HTTP/1.1[0m" 500 -
+2023-12-23 22:36:55,384 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:36:55] "GET /admin/driverFile/6586e3fc433c2c45ef00814e HTTP/1.1" 200 -
+2023-12-23 22:36:55,471 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:36:55] "GET /admin/get_media/6586e3fc433c2c45ef00811d HTTP/1.1" 200 -
+2023-12-23 22:36:55,471 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:36:55] "GET /admin/get_media/6586e3fc433c2c45ef008144 HTTP/1.1" 200 -
+2023-12-23 22:36:56,249 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:36:56] "[32mPOST /admin/verify/6586e3fc433c2c45ef00814e HTTP/1.1[0m" 302 -
+2023-12-23 22:36:56,258 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:36:56] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 22:37:01,917 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:01] "GET /admin/driverFile/6586e3fc433c2c45ef00814e HTTP/1.1" 200 -
+2023-12-23 22:37:01,957 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:01] "GET /admin/get_media/6586e3fc433c2c45ef00811d HTTP/1.1" 200 -
+2023-12-23 22:37:01,958 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:01] "GET /admin/get_media/6586e3fc433c2c45ef008144 HTTP/1.1" 200 -
+2023-12-23 22:37:04,464 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:04] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 22:37:29,886 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:29] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 22:37:33,922 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:33] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 22:37:36,476 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:36] "GET /admin/routes HTTP/1.1" 200 -
+2023-12-23 22:37:45,078 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:37:45] "[33mGET /admin/performance HTTP/1.1[0m" 404 -
+2023-12-23 22:45:27,306 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:45:27,881 [INFO] -  * Restarting with stat
+2023-12-23 22:45:28,557 [WARNING] -  * Debugger is active!
+2023-12-23 22:45:28,559 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:45:29,022 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:29] "GET /admin/routes HTTP/1.1" 200 -
+2023-12-23 22:45:29,888 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:29] "[33mGET /admin/performance HTTP/1.1[0m" 404 -
+2023-12-23 22:45:32,367 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:32] "[33mGET /admin/performance HTTP/1.1[0m" 404 -
+2023-12-23 22:45:39,666 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:45:40,003 [INFO] -  * Restarting with stat
+2023-12-23 22:45:40,680 [WARNING] -  * Debugger is active!
+2023-12-23 22:45:40,682 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:45:41,423 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:41] "[33mGET /admin/performance HTTP/1.1[0m" 404 -
+2023-12-23 22:45:52,780 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:45:53,145 [INFO] -  * Restarting with stat
+2023-12-23 22:45:53,780 [WARNING] -  * Debugger is active!
+2023-12-23 22:45:53,783 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:45:54,588 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:54] "[35m[1mGET /admin/performance HTTP/1.1[0m" 500 -
+2023-12-23 22:45:54,666 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:54] "GET /admin/performance?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2023-12-23 22:45:54,666 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:54] "GET /admin/performance?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2023-12-23 22:45:54,677 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:54] "GET /admin/performance?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2023-12-23 22:45:54,677 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:45:54] "GET /admin/performance?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2023-12-23 22:46:14,950 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\admin\\admin.py', reloading
+2023-12-23 22:46:15,222 [INFO] -  * Restarting with stat
+2023-12-23 22:46:15,826 [WARNING] -  * Debugger is active!
+2023-12-23 22:46:15,829 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 22:46:17,867 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:46:17] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:46:31,452 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:46:31] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:47:54,558 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:47:54] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:48:18,853 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:48:18] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:48:27,219 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:48:27] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:49:40,419 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:49:40] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:49:49,306 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:49:49] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:49:56,708 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:49:56] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:50:11,912 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:50:11] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:50:27,192 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:50:27] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:50:39,610 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:50:39] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:50:54,193 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:50:54] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:51:55,930 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:51:55] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:52:09,090 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:52:09] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:52:55,585 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:52:55] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:53:17,544 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:53:17] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:53:26,618 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:53:26] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:53:42,925 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:53:42] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:54:21,274 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:54:21] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:54:32,848 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:54:32] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:54:34,063 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:54:34] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:54:48,624 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:54:48] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:54:49,295 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:54:49] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:55:01,658 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:55:01] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:55:38,906 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:55:38] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:55:39,507 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:55:39] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:55:43,616 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:55:43] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:55:58,924 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:55:58] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:56:16,619 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:56:16] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:56:34,888 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:56:34] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:56:39,416 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:56:39] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:57:18,496 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:57:18] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:57:36,907 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:57:36] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:57:37,416 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:57:37] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 22:57:56,106 [INFO] - 127.0.0.1 - - [23/Dec/2023 22:57:56] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 23:01:09,569 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:09] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 23:01:10,201 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:10] "GET /admin/routes HTTP/1.1" 200 -
+2023-12-23 23:01:12,177 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:12] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 23:01:12,758 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:12] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 23:01:14,071 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:14] "GET /admin/routes HTTP/1.1" 200 -
+2023-12-23 23:01:15,043 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:15] "GET /admin/ HTTP/1.1" 200 -
+2023-12-23 23:01:16,598 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:01:16] "GET /admin/performance HTTP/1.1" 200 -
+2023-12-23 23:20:11,105 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:20:11] "GET /client/register HTTP/1.1" 200 -
+2023-12-23 23:20:13,453 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:20:13] "GET /login HTTP/1.1" 200 -
+2023-12-23 23:20:20,346 [INFO] - User sharmaupasana823@gmail.com Logged in
+2023-12-23 23:20:20,346 [INFO] - Login time: 0.2515273094177246
+2023-12-23 23:20:20,347 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:20:20] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-23 23:20:20,362 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:20:20] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:20:37,355 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:20:37] "[33mPOST /google/geocode HTTP/1.1[0m" 404 -
+2023-12-23 23:29:18,301 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:29:18] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:29:32,375 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:29:32] "[31m[1mPOST /geocode HTTP/1.1[0m" 405 -
+2023-12-23 23:30:04,784 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:30:04] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:30:06,018 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:30:06] "[31m[1mPOST /geocode HTTP/1.1[0m" 405 -
+2023-12-23 23:30:10,350 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:30:10] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:31:20,691 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:31:20] "[31m[1mPOST /geocode HTTP/1.1[0m" 405 -
+2023-12-23 23:31:47,251 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:31:47,773 [INFO] -  * Restarting with stat
+2023-12-23 23:31:48,476 [WARNING] -  * Debugger is active!
+2023-12-23 23:31:48,478 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:31:51,904 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:31:51] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:32:06,015 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:32:06] "[31m[1mPOST /geocode HTTP/1.1[0m" 405 -
+2023-12-23 23:32:49,114 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:32:49,427 [INFO] -  * Restarting with stat
+2023-12-23 23:32:50,095 [WARNING] -  * Debugger is active!
+2023-12-23 23:32:50,098 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:32:55,336 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:32:55] "[31m[1mPOST /geocode HTTP/1.1[0m" 405 -
+2023-12-23 23:33:06,883 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:33:06] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:33:17,352 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:33:17] "[31m[1mPOST /geocode HTTP/1.1[0m" 405 -
+2023-12-23 23:33:53,711 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:33:54,105 [INFO] -  * Restarting with stat
+2023-12-23 23:33:54,728 [WARNING] -  * Debugger is active!
+2023-12-23 23:33:54,731 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:33:57,168 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:33:57] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:34:10,484 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:34:10] "POST /geocode HTTP/1.1" 200 -
+2023-12-23 23:42:07,492 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Helpers\\Price\\price.py', reloading
+2023-12-23 23:42:08,001 [INFO] -  * Restarting with stat
+2023-12-23 23:42:08,645 [WARNING] -  * Debugger is active!
+2023-12-23 23:42:08,648 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:47:33,121 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Helpers\\Price\\price.py', reloading
+2023-12-23 23:47:33,691 [INFO] -  * Restarting with stat
+2023-12-23 23:47:34,380 [WARNING] -  * Debugger is active!
+2023-12-23 23:47:34,383 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:47:39,968 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:47:39] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:47:58,247 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:47:58] "POST /geocode HTTP/1.1" 200 -
+2023-12-23 23:48:06,740 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:48:07,314 [INFO] -  * Restarting with stat
+2023-12-23 23:48:39,159 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-23 23:48:39,159 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-23 23:48:39,159 [INFO] -  * Restarting with stat
+2023-12-23 23:48:39,761 [WARNING] -  * Debugger is active!
+2023-12-23 23:48:39,763 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:48:43,101 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:48:43] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:49:08,975 [INFO] - Route: /geocode, Time: 0.7590184211730957
+2023-12-23 23:49:08,986 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:49:08] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-23 23:49:31,345 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:49:31,739 [INFO] -  * Restarting with stat
+2023-12-23 23:49:32,373 [WARNING] -  * Debugger is active!
+2023-12-23 23:49:32,375 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:49:51,535 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:49:51,949 [INFO] -  * Restarting with stat
+2023-12-23 23:49:52,557 [WARNING] -  * Debugger is active!
+2023-12-23 23:49:52,560 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:49:56,725 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:49:56] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:50:04,905 [INFO] - Route: /geocode, Time: 0.6949663162231445
+2023-12-23 23:50:04,914 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:50:04] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-23 23:54:41,073 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:54:41,649 [INFO] -  * Restarting with stat
+2023-12-23 23:54:42,269 [WARNING] -  * Debugger is active!
+2023-12-23 23:54:42,272 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:54:48,498 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:54:48] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:54:55,421 [INFO] - Route: /geocode, Time: 0.7790749073028564
+2023-12-23 23:54:55,426 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:54:55] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-23 23:55:53,911 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:55:54,295 [INFO] -  * Restarting with stat
+2023-12-23 23:55:54,911 [WARNING] -  * Debugger is active!
+2023-12-23 23:55:54,913 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:55:59,181 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:55:59] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:56:06,434 [INFO] - Route: /geocode, Time: 0.6934537887573242
+2023-12-23 23:56:06,439 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:56:06] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-23 23:56:33,286 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:56:33,836 [INFO] -  * Restarting with stat
+2023-12-23 23:56:34,489 [WARNING] -  * Debugger is active!
+2023-12-23 23:56:34,492 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:56:38,358 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:56:38] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:56:44,785 [INFO] - Route: /geocode, Time: 0.672029972076416
+2023-12-23 23:56:44,790 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:56:44] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-23 23:57:47,181 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-23 23:57:47,480 [INFO] -  * Restarting with stat
+2023-12-23 23:57:48,084 [WARNING] -  * Debugger is active!
+2023-12-23 23:57:48,087 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-23 23:58:58,095 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:58:58] "GET /client/ HTTP/1.1" 200 -
+2023-12-23 23:59:03,502 [INFO] - Route: /geocode, Time: 0.6998708248138428
+2023-12-23 23:59:03,508 [INFO] - 127.0.0.1 - - [23/Dec/2023 23:59:03] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:01:03,694 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:01:04,144 [INFO] -  * Restarting with stat
+2023-12-24 00:01:04,832 [WARNING] -  * Debugger is active!
+2023-12-24 00:01:04,836 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:01:07,649 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:01:07] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:01:14,206 [INFO] - Route: /geocode, Time: 0.6777079105377197
+2023-12-24 00:01:14,211 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:01:14] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:05:16,829 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:05:17,358 [INFO] -  * Restarting with stat
+2023-12-24 00:05:18,017 [WARNING] -  * Debugger is active!
+2023-12-24 00:05:18,020 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:05:35,164 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:05:35,530 [INFO] -  * Restarting with stat
+2023-12-24 00:05:36,178 [WARNING] -  * Debugger is active!
+2023-12-24 00:05:36,182 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:05:38,783 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:05:38] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:05:47,951 [INFO] - Route: /geocode, Time: 0.7246530055999756
+2023-12-24 00:05:47,956 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:05:47] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:08:54,757 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:08:55,265 [INFO] -  * Restarting with stat
+2023-12-24 00:08:55,828 [WARNING] -  * Debugger is active!
+2023-12-24 00:08:55,830 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:08:59,803 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:08:59] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:09:05,732 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:09:05] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:11:53,393 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:11:53,935 [INFO] -  * Restarting with stat
+2023-12-24 00:11:54,565 [WARNING] -  * Debugger is active!
+2023-12-24 00:11:54,568 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:11:59,878 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:11:59] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:12:06,140 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:12:06] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:13:14,394 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:13:14,557 [INFO] -  * Restarting with stat
+2023-12-24 00:13:15,160 [WARNING] -  * Debugger is active!
+2023-12-24 00:13:15,163 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:13:20,238 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:13:20] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:13:24,725 [INFO] - Route: /geocode, Time: 0.7714242935180664
+2023-12-24 00:13:24,725 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:13:24] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:14:24,726 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:14:25,152 [INFO] -  * Restarting with stat
+2023-12-24 00:14:25,759 [WARNING] -  * Debugger is active!
+2023-12-24 00:14:25,761 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:14:36,647 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:14:36] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:14:43,733 [INFO] - Route: /geocode, Time: 0.7874999046325684
+2023-12-24 00:14:43,734 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:14:43] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:17:07,070 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:17:07,297 [INFO] -  * Restarting with stat
+2023-12-24 00:17:07,921 [WARNING] -  * Debugger is active!
+2023-12-24 00:17:07,924 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:17:13,499 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:17:13] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:17:19,487 [INFO] - Route: /geocode, Time: 0.6704187393188477
+2023-12-24 00:17:19,495 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:17:19] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:17:46,257 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:17:46,798 [INFO] -  * Restarting with stat
+2023-12-24 00:17:47,368 [WARNING] -  * Debugger is active!
+2023-12-24 00:17:47,371 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:17:51,702 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:17:51] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:17:58,234 [INFO] - Route: /geocode, Time: 0.6590559482574463
+2023-12-24 00:17:58,238 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:17:58] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:18:45,005 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:18:45,454 [INFO] -  * Restarting with stat
+2023-12-24 00:18:46,143 [WARNING] -  * Debugger is active!
+2023-12-24 00:18:46,145 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:18:49,163 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:18:49] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:18:54,525 [INFO] - Route: /geocode, Time: 0.7370696067810059
+2023-12-24 00:18:54,529 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:18:54] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:19:33,604 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:19:34,106 [INFO] -  * Restarting with stat
+2023-12-24 00:19:34,689 [WARNING] -  * Debugger is active!
+2023-12-24 00:19:34,691 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:19:37,832 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:19:37] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:19:44,478 [INFO] - Route: /geocode, Time: 0.6907544136047363
+2023-12-24 00:19:44,484 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:19:44] "[35m[1mPOST /geocode HTTP/1.1[0m" 500 -
+2023-12-24 00:21:15,564 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 00:21:16,150 [INFO] -  * Restarting with stat
+2023-12-24 00:21:16,797 [WARNING] -  * Debugger is active!
+2023-12-24 00:21:16,800 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:21:19,670 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:21:19] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:21:23,868 [INFO] - Route: /geocode, Time: 0.6362495422363281
+2023-12-24 00:21:23,874 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:21:23] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:21:35,023 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:21:35] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:21:53,517 [INFO] - Route: /geocode, Time: 0.6095876693725586
+2023-12-24 00:21:53,518 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:21:53] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:22:50,673 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Helpers\\Price\\price.py', reloading
+2023-12-24 00:22:51,235 [INFO] -  * Restarting with stat
+2023-12-24 00:22:51,894 [WARNING] -  * Debugger is active!
+2023-12-24 00:22:51,896 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:22:58,512 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:22:58] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:23:06,315 [INFO] - Route: /geocode, Time: 0.7720985412597656
+2023-12-24 00:23:06,316 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:23:06] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:23:51,848 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 00:23:51,848 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 00:23:51,849 [INFO] -  * Restarting with stat
+2023-12-24 00:23:52,404 [WARNING] -  * Debugger is active!
+2023-12-24 00:23:52,407 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:23:53,453 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:23:53] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:24:10,457 [INFO] - Route: /geocode, Time: 0.6339850425720215
+2023-12-24 00:24:10,459 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:24:10] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:28:28,687 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Helpers\\Price\\price.py', reloading
+2023-12-24 00:28:29,044 [INFO] -  * Restarting with stat
+2023-12-24 00:28:29,742 [WARNING] -  * Debugger is active!
+2023-12-24 00:28:29,745 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:29:49,282 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:29:49] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:30:05,234 [INFO] - Route: /geocode, Time: 0.6694622039794922
+2023-12-24 00:30:05,236 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:30:05] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:31:20,099 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:31:20] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:31:39,848 [INFO] - Route: /geocode, Time: 0.9710354804992676
+2023-12-24 00:31:39,849 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:31:39] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:35:36,452 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\client\\client.py', reloading
+2023-12-24 00:35:36,944 [INFO] -  * Restarting with stat
+2023-12-24 00:35:37,618 [WARNING] -  * Debugger is active!
+2023-12-24 00:35:37,620 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:36:46,155 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Database\\MongoDB\\rides.py', reloading
+2023-12-24 00:36:46,706 [INFO] -  * Restarting with stat
+2023-12-24 00:36:47,334 [WARNING] -  * Debugger is active!
+2023-12-24 00:36:47,337 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:50:38,091 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:50:38] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:50:46,526 [INFO] - Route: /geocode, Time: 0.7956936359405518
+2023-12-24 00:50:46,528 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:50:46] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:50:48,487 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:50:48] "GET /socket.io/?EIO=4&transport=polling&t=OoP5gca HTTP/1.1" 200 -
+2023-12-24 00:50:48,491 [INFO] - Route: /ride, Time: 0.0010006427764892578
+2023-12-24 00:50:48,491 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:50:48] "POST /client/ride HTTP/1.1" 200 -
+2023-12-24 00:50:48,499 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:50:48] "POST /socket.io/?EIO=4&transport=polling&t=OoP5gch&sid=fKZDOCRHWX_3dzjxAAAA HTTP/1.1" 200 -
+2023-12-24 00:50:48,499 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:50:48] "GET /socket.io/?EIO=4&transport=polling&t=OoP5gci&sid=fKZDOCRHWX_3dzjxAAAA HTTP/1.1" 200 -
+2023-12-24 00:51:08,489 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:51:08] "GET /socket.io/?EIO=4&transport=websocket&sid=fKZDOCRHWX_3dzjxAAAA HTTP/1.1" 200 -
+2023-12-24 00:51:08,494 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:51:08] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:51:44,286 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:51:44] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:51:58,772 [INFO] - Route: /geocode, Time: 0.7335548400878906
+2023-12-24 00:51:58,773 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:51:58] "POST /geocode HTTP/1.1" 200 -
+2023-12-24 00:52:01,416 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:01] "GET /socket.io/?EIO=4&transport=polling&t=OoP5yQ3 HTTP/1.1" 200 -
+2023-12-24 00:52:01,418 [INFO] - Route: /ride, Time: 0.0020012855529785156
+2023-12-24 00:52:01,418 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:01] "POST /client/ride HTTP/1.1" 200 -
+2023-12-24 00:52:01,426 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:01] "POST /socket.io/?EIO=4&transport=polling&t=OoP5yQB&sid=duntyCce4PGWl9X-AAAC HTTP/1.1" 200 -
+2023-12-24 00:52:01,426 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:01] "GET /socket.io/?EIO=4&transport=polling&t=OoP5yQC&sid=duntyCce4PGWl9X-AAAC HTTP/1.1" 200 -
+2023-12-24 00:52:01,432 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:01] "POST /socket.io/?EIO=4&transport=polling&t=OoP5yQM&sid=duntyCce4PGWl9X-AAAC HTTP/1.1" 200 -
+2023-12-24 00:52:01,434 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:01] "GET /socket.io/?EIO=4&transport=polling&t=OoP5yQN&sid=duntyCce4PGWl9X-AAAC HTTP/1.1" 200 -
+2023-12-24 00:52:16,998 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:16] "GET /socket.io/?EIO=4&transport=websocket&sid=duntyCce4PGWl9X-AAAC HTTP/1.1" 200 -
+2023-12-24 00:52:17,004 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:17] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:52:22,486 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:52:22] "GET /client/profile HTTP/1.1" 200 -
+2023-12-24 00:53:45,812 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:53:45] "GET /client/profile HTTP/1.1" 200 -
+2023-12-24 00:54:57,086 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\client\\client.py', reloading
+2023-12-24 00:54:57,595 [INFO] -  * Restarting with stat
+2023-12-24 00:54:58,265 [WARNING] -  * Debugger is active!
+2023-12-24 00:54:58,267 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 00:55:02,148 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:55:02] "GET /client/profile HTTP/1.1" 200 -
+2023-12-24 00:55:04,513 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:55:04] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 00:55:11,418 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:55:11] "[33mGET /client/previousRides HTTP/1.1[0m" 404 -
+2023-12-24 00:55:16,664 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:55:16] "GET /client/profile HTTP/1.1" 200 -
+2023-12-24 00:55:34,388 [INFO] - Route: /profile/update - Time taken: 0.017126 seconds
+2023-12-24 00:55:34,389 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:55:34] "[32mPOST /client/profile/update HTTP/1.1[0m" 302 -
+2023-12-24 00:55:34,397 [INFO] - 127.0.0.1 - - [24/Dec/2023 00:55:34] "GET /client/profile HTTP/1.1" 200 -

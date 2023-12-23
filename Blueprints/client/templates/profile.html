@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        a{
+            color: rgb(89, 89, 89);
+        }
+        .profile{
+            background-color: rgb(249, 244, 244);
+            border: solid rgb(222, 212, 212);
+            padding: 5%;
+            border-radius: 3%;
+        }
+        .navbar {
+            background-color: black;
+        }
+        .profile-nav{
+            height: 50px;
+            cursor: pointer;
+        }
+        input{
+            display: none;
+        }
+        .vertical-line {
+        width: 2px; /* Adjust the width of the vertical line */
+        height: 70px; /* Adjust the height of the vertical line */
+        background-color: #000; /* Adjust the color of the vertical line */
+        margin-left: 0.5%;
+        
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+        <div class="ml-auto mr-5">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" class="img-fluid rounded-circle profile-nav" alt="Profile Image">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/client/profile">Profile</a>
+                    <a class="dropdown-item" href="/client/previousRides">View Your Rides</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-body">
+              <!-- Breadcrumb -->
+
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                          <h4></h4>
+                          <p class="text-secondary mb-1"></p>
+                          <p class="text-muted font-size-sm"> </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mt-3">
+                    
+    <div class="col-md-6 mb-3">
+
+                <h5 class="card-title mt-3 mb-4">Update Payment Details</h5>
+                <form>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationDate">Expiration Date</label>
+                        <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+          
+    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 ">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                        <form action="/client/profile/update" method="post">
+                            <div class="row">
+            
+                                <div class="col-sm-5 d-flex flex-row justify-content-between">
+                                  <h6 class="mb-0">Full Name</h6>
+                                  <div class="name ml-5" id="name">{{client_info['name']}}</div>
+                                  <input class="name ml-5" id="iname" name="name">
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                     
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-5 d-flex flex-row justify-content-between">
+                                  <h6 >Email</h6>
+                                  <div class="email ml-5" id="email"> {{email}} </div>
+                                  <input class="email ml-5" id="iemail" name="email" required>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                           
+                                </div>
+                              </div>
+                              <hr>
+                  
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-5 d-flex flex-row justify-content-between">
+                                  <h6 class="mb-0">Address</h6>
+                                  <div class="address ml-1" id="address">{{client_info['address']}}</div>
+                                  <input class="address ml-5" id="iaddress" name="address">
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                 
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-12" id="edtbtn">
+                                  <button class="btn btn-info " type="button" id="editbtn" target="__blank" onclick="editInfo()" >Edit</button>
+                                </div>
+                              </div>
+                            
+                        </form>
+                        <div class="card">
+                          <h3 class="h3 text-center"> VIEW PREVIOUS TRIPS</h3>
+                          
+                            <ul type="none" class="list-group">
+                              {% for ride in previous_rides %}
+                                <li class="list-group-item"> {{ ride['made_at']}} 
+                                  <br>
+                                  {{ride['price']}}
+                              <br>
+                              <i class="fas fa-location-dot"></i>
+                                {{ ride['pickup_location'] }}
+                              <div class="vertical-line"></div>
+                              <i class="fas fa-location-arrow"></i>
+                                {{ ride['dropoff_location'] }}
+                                </li>
+                              {% endfor %}
+                            </ul>
+        
+                        </div>
+                      
+                    </div>
+                  </div>
+    
+                </div>
+
+              </div>
+          
+            </div>
+        </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function editInfo(){
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        console.log(email.innerHTML)
+        var address = document.getElementById('address');
+        name.style.display = 'none';
+        email.style.display = 'none';
+        address.style.display = 'none';
+        // get the input boxes
+        var iname = document.getElementById('iname');
+        var iemail = document.getElementById('iemail');
+        var iaddress = document.getElementById('iaddress');
+        iname.style.display = 'block';
+        iname.value = name.innerHTML;
+        iemail.style.display = 'block';
+        iemail.value = email.innerHTML;
+        iaddress.style.display = 'block';
+        iaddress.value = address.innerHTML;
+
+        editbtn = document.getElementById('edtbtn')
+        editbtn.innerHTML = ` <button type="submit" class="btn btn-info " id="editbtn" target="__blank" onclick="UpdateInfo()" >Done</button>`
+    }
+
+</script>
+</body>
+</html>

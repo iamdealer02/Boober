@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+                .navbar {
+            background-color: black;
+        }
+        .profile{
+            height: 50px;
+            cursor: pointer;
+        }
+        .driver-names{
+            width: 150vh;
+            padding: 2%;
+            border: solid rgb(190, 181, 181) 1px;
+            margin: 0 auto;
+        }
+        .sidenav {
+        height: 100%;
+        width: 200px;
+        margin-top: 82px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        padding-top: 20px;
+    }
+
+    .sidenav a {
+        padding: 15px 8px 15px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+        margin-left: 250px; /* Adjust this value to leave space for the side panel */
+        padding: 16px;
+    }
+    /* Main Content Styles */
+    .driver {
+        margin-left: 250px; /* Adjust this value to match the width of your side panel */
+        padding: 16px;
+    }
+    img{
+        height: 200px;
+    }
+    .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .driver {
+            padding: 5%;
+            border: 1px solid #dee2e6;
+            width:100vh;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+        .buttons{
+            margin: 0 auto;
+            margin-top: auto;
+        }
+
+        .driver img {
+            height: 150px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border-top: 1px solid #dee2e6;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        a.download-link {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a.download-link:hover {
+            text-decoration: underline;
+        }
+        .vehicle{
+            border: solid #efecec 1px;
+            border-radius: 1%;
+            padding: 5%;
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+        <div class="ml-auto mr-5">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" class="img-fluid rounded-circle profile" alt="Profile Image">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="">/a>
+                    <a class="dropdown-item" href="">b</a>
+                </div>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="sidenav">
+        <a href="/admin" class="font-weight-bolder">DRIVER REQUESTS</a>
+        <a href="/admin/routes" class="font-weight-bolder" >ROUTES </a>
+        <a href="/admin/performance" class="font-weight-bolder" > ROUTE PERFORMANCES </a>
+        <!-- Add more options as needed -->
+    </div>
+    
+    <div class="driver ">
+        <div class=" d-flex flex-row">
+            <div class="d-flex flex-column">
+                <img src="/admin/get_media/{{driver['Driver_Photo_id']}}" class="img-fluid" alt="Driver Photo">
+                <div class="vehicle">
+                    <img src="/admin/get_media/{{driver['Vehicle_Photo_id']}}" class="img-fluid" id="profilePic" alt="Vehicle Photo">
+                   <div>Vehicle Picture</div> 
+                </div>
+                
+            </div>
+    
+            <hr>
+            <div>
+                <p>Driver Firstname: {{driver['Firstname']}}</p>
+                <p>Driver Lastname: {{driver['Lastname']}}</p>
+                <hr>
+                <p>Vehicle Type: {{driver['VehicleType'].split('-')[1]}}</p>
+                <hr>
+                <p>KBIS File: <a href="/admin/get_media/{{driver['KBIS_File_id']}}" class="download-link"><i class="fas fa-download"></i> Download</a></p>
+                <hr>
+                <p>License: <a href="/admin/get_media/{{driver['License_id']}}" class="download-link"><i class="fas fa-download"></i> Download</a></p>
+                <hr>
+                <p>Birth-Certificate: <a href="/admin/get_media/{{driver['BirthCertificate_id']}}" class="download-link"><i class="fas fa-download"></i> Download</a></p>
+    
+            </div>
+
+        </div>
+
+
+        <div class="d-flex flex-column ">
+            <button class="btn btn-success btn-block" onclick="VerifyDriver()"> VERIFY </button>
+            <button class="btn btn-danger mt-4 btn-block"> REJECT </button>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script>
+    function VerifyDriver(){
+        var driver_id = "{{driver['_id']}}";
+        $.ajax({
+            url: `/admin/verify/${driver_id}`,
+            type: "POST",
+            data: {
+                driver_id: driver_id
+            },
+            success: function (response) {
+              window.location.href = "/admin";
+            },
+            error: function (xhr) {
+                alert("An error occured: " + xhr.status + " " + xhr.statusText);
+            }
+        });
+    }
+</script>
+</body>
+</html>

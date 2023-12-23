@@ -1,5 +1,7 @@
 import sqlite3
-from flask import g 
+from flask import g, Flask
+
+# app = Flask(__name__)
 
 def create_user_table(db):
     cursor = db.cursor()
@@ -62,6 +64,10 @@ def get_user_by_id(user_id):
     user_data = cursor.fetchone()
     db.commit()
     return user_data
+
+# if __name__ == '__main__':
+#     with app.app_context():
+#         add_user('admin@boober.fr', '123456', 'admin')
 
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------

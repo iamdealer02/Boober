@@ -59,9 +59,6 @@
         .navbar {
             background-color: black;
         }
-        i{
-            height: 20px;
-        }
         .selection-board {
             width: 1200px;
             
@@ -70,6 +67,10 @@
         }
         .drive-data{
             border: black solid;
+        }
+        .profile{
+            height: 50px;
+            cursor: pointer;
         }
         .autocomplete-items {
             position: absolute;
@@ -106,7 +107,6 @@
            
        
         }
-
         .green:hover{
             cursor: pointer;
             background-color: #f7f7f7;
@@ -159,6 +159,19 @@
         opacity: 1;
     }
 }
+#final {
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px; /* Adjust the width as needed */
+        background-color: #28292b; /* Set your desired background color */
+        color: #fff; /* Set your desired text color */
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
     
     </style>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans+Text:500&amp;lang=en">
@@ -261,12 +274,21 @@ async function initMap() {
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon bg-dark"></span>
         </button>
-        <div class="ml-auto">
-            <!-- Your profile button goes here -->
-            <button class="btn bg-light rounded-circle profile"><i class="fas fa-user-circle"></i> </button>
+        <div class="ml-auto mr-5">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" class="img-fluid rounded-circle profile" alt="Profile Image">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/client/profile">Profile</a>
+                    <a class="dropdown-item" href="/client/previousRides">View Your Rides</a>
+                </div>
+            </div>
         </div>
+        
     </nav>
-    <div class="container ">
+    <div id="loadingImage"></div>
+    <div class="container" id="container">
             <div class="d-flex flex-column flex-lg-row   justify-content-between log" style="height: 100vh;">
                 <div class="selection-board ">
                     <div class="drive-data d-flex flex-column justify-content-between border rounded p-4 ">
@@ -316,6 +338,7 @@ async function initMap() {
                                             <div class="row">
                                                 <div class="h3 font-weight-bold"> Green </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="GreenPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -332,21 +355,23 @@ async function initMap() {
                                 </div>
                         
                             </div>
-                            <div class="green" id="UberX"  onclick="vehicleType(this)">
+                            <div class="green" id="MotoTaxi"  onclick="vehicleType(this)">
                                 <div class="d-flex flex-row">
                                     <div class="car-image">
-                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_v1.png" height="150px ">
+                                        <img src="https://d1a3f4spazzrp4.cloudfront.net/web-onboarding/images/vehicle_icons/parisMoto.png" height="150px ">
 
                                     </div>
                                     <div class="car-content">
                                         <div class="d-flex flex-column mt-3 ml-4">
                                             <div class="row">
-                                                <div class="h3 font-weight-bold"> UberX </div>
+                                                <div class="h3 font-weight-bold"> MotoTaxi </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="MotoTaxiPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
                                                 <div class="text  mt-1 ml-3">3 mins away</div>
+
                                             
                                             </div>
                                             <div class="row">
@@ -372,6 +397,7 @@ async function initMap() {
                                             <div class="row">
                                                 <div class="h3 font-weight-bold"> Taxi </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="TaxiPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -398,7 +424,7 @@ async function initMap() {
                         <!-- Car Model 2 starts -->
                         <div class="Popular">
                             <h4 class="font-weight-bolder"> Popular </h4>
-                            <div class="green" id="Berlin"  onclick="vehicleType(this)" >
+                            <div class="green" id=" Taxi"  onclick="vehicleType(this)" >
                                 <div class="d-flex flex-row" >
                                     <div class="car-image">
                                         <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Black_v1.png" height="150px">
@@ -409,6 +435,7 @@ async function initMap() {
                                             <div class="row">
                                                 <div class="h3 font-weight-bold"> Berline </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="BerlinPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -425,7 +452,7 @@ async function initMap() {
                                 </div>
                         
                             </div>
-                            <div class="green" id="Comfort"  onclick="vehicleType(this)">
+                            <div class="green" id=" Taxi"  onclick="vehicleType(this)">
                                 <div class="d-flex flex-row">
                                     <div class="car-image">
                                         <img src="https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/UberX_v1.png" height="150px ">
@@ -436,6 +463,7 @@ async function initMap() {
                                             <div class="row">
                                                 <div class="h3 font-weight-bold"> Comfort </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="ComfortPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -466,6 +494,7 @@ async function initMap() {
                                                 <div class="h3 font-weight-bold"> 
                                                     Van </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>6</div>
+                                                <div class="ml-5" id="VanPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -499,6 +528,7 @@ async function initMap() {
                                             <div class="row">
                                                 <div class="h3"> Uber Pet </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="UberPetPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -526,6 +556,7 @@ async function initMap() {
                                             <div class="row">
                                                 <div class="h3 font-weight-bold"> SpaceShip </div>
                                                 <div class="person-image mt-1 ml-3"><i class="fa fa-user"></i>4</div>
+                                                <div class="ml-5" id="SpaceShipPrice">  </div>
                                             </div>
                                             <div class="row">
                                                 <div class="clock-image mt-1 ml-3"><i class="fa fa-clock"></i> </div>
@@ -694,15 +725,33 @@ function Geocode() {
 
     // Make an AJAX request to the Google geocode API
     $.ajax({
-        url: '/google/geocode', // Replace with your backend endpoint
+        url: '/geocode', // Replace with your backend endpoint
         method: 'post',
         data: {
             Pickup: Pickup,
             Dropoff: Dropoff
         },
         success: function (data) {
-            console.log(data)
-            //  get the geocoded points and put it in the google map
+            // set the price of the ride
+            var GreenPrice = document.getElementById('GreenPrice');
+            var MotoTaxiPrice = document.getElementById('MotoTaxiPrice');
+            var TaxiPrice = document.getElementById('TaxiPrice');
+            var BerlinPrice = document.getElementById('BerlinPrice');
+            var ComfortPrice = document.getElementById('ComfortPrice');
+            var VanPrice = document.getElementById('VanPrice');
+            var UberPetPrice = document.getElementById('UberPetPrice');
+            var SpaceShipPrice = document.getElementById('SpaceShipPrice');
+
+            GreenPrice.innerHTML = '€' + data['GreenPrice'];
+            MotoTaxiPrice.innerHTML = '€' + data['MotoTaxiPrice'];
+            TaxiPrice.innerHTML = '€' + data['TaxiPrice'];
+            BerlinPrice.innerHTML = '€' + data['BerlinPrice'];
+            ComfortPrice.innerHTML = '€' + data['ComfortPrice'];
+            VanPrice.innerHTML = '€' + data['VanPrice'];
+            UberPetPrice.innerHTML = '€' + data['UberPetPrice'];
+            SpaceShipPrice.innerHTML = '€' + data['SpaceShipPrice'];
+
+
         },
         error: function (error) {
             console.error('Error:', error);
@@ -748,26 +797,35 @@ function vehicleType(element) {
     input.value = elementId;
 
     finalSelection.innerHTML = `
-    <div >
-        <div>
+    <div>
+    <div>
         <button class='btn btn-light btn-block' id='final' onclick='SendData()'> Select ${elementId} </button>
-        </div>
     </div>
+</div>
     `
     console.log('done');
 }
 function SendData() {
+    // show a loading screen
+    var container = document.getElementById('container');
+    container.style.opacity = '0.4';
+    var loadingImage = document.getElementById('loadingImage');
+    loadingImage.innerHTML = `<img src="https://cdn-icons-gif.flaticon.com/10282/10282582.gif" alt="loading" style="width: 100px; height: 100px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">`
+
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
     console.log('inside s')
     // Get ride details from the form
     var pickup = document.getElementById('from-input').value;
     var dropoff = document.getElementById('to-input').value;
     var vehicleType = document.getElementById('rideType').value;
+    var ridePrice = document.getElementById(`${vehicleType}Price`).innerHTML;
 
     var rideData = {
                 pickup: pickup,
                 dropoff: dropoff,
-                vehicleType: vehicleType
+                vehicleType: vehicleType,
+                ridePrice: ridePrice
+
             };
     // Use AJAX to send the data to the backend and socketio to send in real-time to drivers
     $.ajax({
@@ -784,7 +842,8 @@ function SendData() {
                     ride_id : ride_id,
                     pickup: pickup,
                     dropoff: dropoff,
-                    vehicleType: vehicleType
+                    vehicleType: vehicleType,
+                    ridePrice: ridePrice
 
                 }
             console.log('Ride data is : ',rideData)

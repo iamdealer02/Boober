@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        a{
+            color: rgb(89, 89, 89);
+        }
+        .profile{
+            background-color: rgb(249, 244, 244);
+            border: solid rgb(222, 212, 212);
+            padding: 5%;
+            border-radius: 3%;
+        }
+        .vertical-line {
+        width: 2px; /* Adjust the width of the vertical line */
+        height: 70px; /* Adjust the height of the vertical line */
+        background-color: #000; /* Adjust the color of the vertical line */
+        margin-left: 0.5%;
+        
+    }
+        .navbar {
+            background-color: black;
+        }
+        .profile-nav{
+            height: 50px;
+            cursor: pointer;
+        }
+        input{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+        <div class="ml-auto mr-5">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" class="img-fluid rounded-circle profile-nav" alt="Profile Image">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/client/profile">Profile</a>
+                    <a class="dropdown-item" href="/client/previousRides">View Your Rides</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-body">
+              <!-- Breadcrumb -->
+
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                          <h4></h4>
+                          <p class="text-secondary mb-1"></p>
+                          <p class="text-muted font-size-sm"> </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mt-3">
+                    
+  
+                  </div>
+                </div>
+                <div class="col-md-8 mt-5">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                        <form action="/driver/profile/update" method="post">
+                            <div class="row">
+            
+                                <div class="col-sm-5 d-flex flex-row justify-content-between">
+                                  <h6 class="mb-0">Fistname </h6>
+                                  <div class="fname ml-5" id="fname">{{ driver_info['Firstname'] }} </div>
+                                  <input class="fname ml-5" id="ifname" name="fname" required>
+                                </div>
+                                <div class="col-sm-5 d-flex flex-row justify-content-between">
+                                  <h6 class="mb-0">Lastname</h6>
+                                  <div class="lname ml-5" id="lname">{{ driver_info['Lastname'] }} </div>
+                                  <input class="lname ml-5" id="ilname" name="lname" required>
+                                </div>
+                                
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-5 d-flex flex-row justify-content-between">
+                                  <h6 >Email</h6>
+                                  <div class="email ml-5" id="email">{{ driver_info['Email'] }}</div>
+                                  <input class="email ml-5" id="iemail" name="email" required>
+                                </div>
+                               
+                              </div>
+                          
+                 
+                              </div>
+                
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-12" id="edtbtn">
+                                  <button class="btn btn-info " type="button" id="editbtn" target="__blank" onclick="editInfo()" >Edit</button>
+                                </div>
+                              </div>
+                            
+                        </form>
+                      
+                    </div>
+                  </div>
+
+                </div>
+                <div class="card">
+                  <h3 class="h3 text-center"> VIEW PREVIOUS TRIPS</h3>
+                  
+                    <ul type="none" class="list-group">
+                      {% for ride in previous_rides %}
+                        <li class="list-group-item"> {{ ride['made_at']}} 
+                      <br>
+                      <i class="fas fa-location-dot"></i>
+                        {{ ride['pickup_location'] }}
+                      <div class="vertical-line"></div>
+                      <i class="fas fa-location-arrow"></i>
+                        {{ ride['dropoff_location'] }}
+                        </li>
+                      {% endfor %}
+                    </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+        </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+function editInfo() {
+    var fname = document.getElementById('fname');
+    var lname = document.getElementById('lname');
+    var email = document.getElementById('email');
+
+    fname.style.display = 'none';
+    lname.style.display = 'none';
+    email.style.display = 'none';
+
+    // get the input boxes
+    var ifname = document.getElementById('ifname');
+    var ilname = document.getElementById('ilname');
+    var iemail = document.getElementById('iemail');
+
+    ifname.style.display = 'block';
+    ifname.value = fname.innerHTML;
+    ilname.style.display = 'block';
+    ilname.value = lname.innerHTML;
+    iemail.style.display = 'block';
+    iemail.value = email.innerHTML;
+
+    var editbtn = document.getElementById('edtbtn');
+    editbtn.innerHTML = `<button class="btn btn-info" id="submitbtn" onclick=submitform() type="submit">Done</button>`;
+
+ 
+}
+function submitform(){
+     // Trigger form submission
+     document.querySelector('form').submit();
+}
+
+
+</script>
+</body>
+</html>

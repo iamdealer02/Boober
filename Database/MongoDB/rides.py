@@ -18,7 +18,7 @@ try:
 except Exception as e:
     print(e)
 
-def add_rides(client_id, pickup_location, dropoff_location, status='Initiated'):
+def add_rides(client_id, pickup_location, dropoff_location, price, status='Initiated'):
     # when the driver has not been assigned
     # status stays as initiated/cancelled
     posted_at = datetime.utcnow().date().isoformat()
@@ -26,6 +26,7 @@ def add_rides(client_id, pickup_location, dropoff_location, status='Initiated'):
         'client_id': client_id,
         'pickup_location' : pickup_location,
         'dropoff_location': dropoff_location,
+        'price': price,
         'status': status,
         'made_at': posted_at
     }
@@ -85,3 +86,14 @@ def get_ride_details(ride_id):
     ride_id = ObjectId(ride_id)
     ride_data = collection.find_one({'_id': ride_id})
     return(ride_data)
+
+
+def get_all_previous_rides(sql_id):
+    ride_data = collection.find({
+        '$or': [
+            {'client_id': sql_id},
+            {'driver_id': sql_id}  # Add additional conditions as needed
+        ]
+    })
+    return ride_data
+
