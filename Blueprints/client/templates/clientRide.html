@@ -39,8 +39,9 @@
         border-radius: 1%;
         padding: 3%;
      
-
+    
     }
+
     .chat{
         height: 50px;
     }
@@ -243,14 +244,53 @@
     margin-bottom: 70px;
 }
     </style>
-     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-o7mZ6Q9p4dYK9ij8CpFp8+MjzX2smD3l+scE4a/3UsA=" crossorigin="anonymous"></script>
+      
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Your function here
-        connectChat()
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     // Your function here
+    //     connectChat()
+    // });
+    function initProjectedRide() {
+      // Initialize the map
+      console.log('init map')
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 25
+      });
+
+      google.maps.event.clearInstanceListeners(map);
+  
+      // Initialize the Directions service and renderer
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+  
+      // Call the function to display the route
+      calculateAndDisplayRoute();
+    }
+  
+    function calculateAndDisplayRoute() {
+      // Define the start and end points
+      const start = '{{ride_data["pickup_location"]}}';
+      const end = '{{ride_data["dropoff_location"]}}';
+  
+      // Request directions from the Directions service
+      directionsService.route(
+        {
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        },
+        (response, status) => {
+          if (status === 'OK') {
+            
+            directionsRenderer.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        }
+      );
+    }
     </script>
 </head>
 <body>
@@ -330,20 +370,12 @@
                 </div>
             </div>
         </div>
-        <div class="map-board ml-3">
-            <iframe
-            width="600"
-            height="700"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc
-            &q=Space+Needle,Seattle+WA">
-            </iframe>    
+        <div class="map-board">
+          <div id="map" style="height: 90vh; width: 30vw;"></div>
+
         </div>
     </div>
-    
+
     <script>
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
     document.addEventListener('DOMContentLoaded', function(){
@@ -467,7 +499,18 @@
         })
         
         })
-
+        // if ride is completed then redirect them to the invoice page
+        // keep on checking if the ride is completed every 5 seconds
+        setInterval(checkRideStatus, 5000)
+        function checkRideStatus(){
+            ride_id = "{{ride_data['_id']}}"
+            ride_status = "{{ride_data['status']}}"
+            if(ride_status == 'Completed'){
+                window.location.href = "/client/invoice/" + ride_id
+            }
+        }
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc&callback=initProjectedRide"></script>
+
 </body>
 </html>

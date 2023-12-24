@@ -35,6 +35,16 @@
         margin-left: 0.5%;
         
     }
+    a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+  }
+
+  /* Apply styles on hover to make sure there's no hover effect */
+  a:hover {
+    text-decoration: none; /* Remove underline on hover */
+    color: inherit; /* Inherit text color on hover */
+  }
     </style>
 </head>
 <body>
@@ -151,6 +161,7 @@
                           
                             <ul type="none" class="list-group">
                               {% for ride in previous_rides %}
+                              <a type="none" href="/client/view_invoice/{{ride['_id']}}"> 
                                 <li class="list-group-item"> {{ ride['made_at']}} 
                                   <br>
                                   {{ride['price']}}
@@ -161,6 +172,7 @@
                               <i class="fas fa-location-arrow"></i>
                                 {{ ride['dropoff_location'] }}
                                 </li>
+                              </a>
                               {% endfor %}
                             </ul>
         

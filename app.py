@@ -4,7 +4,11 @@ from flask_mail import *
 from flask_babel import *
 from Database.SQL.client import get_user_by_id
 from Class.authentication.classes import User
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
+from SMTP.mail_init import init_mail
+import time
+from logger.log import time_logger, auth_logger
+
 
 # getting the blueprints
 from Blueprints.home.home import home_bp
@@ -22,13 +26,16 @@ app = Flask(__name__)
 app.secret_key = 'upasana12345'
 app.debug = True
 
-
+# configuring the cache
+cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 
 babel = Babel(app)
+init_mail(app)
 
 login_manager = LoginManager()
 login_manager.login_view = 'authentication.login'
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -55,6 +62,36 @@ app.register_blueprint(admin_bp, url_prefix = "/admin")
 
 
 
+# INTEGRATING MIDDLEWARES FOR LOGGING AND PERFORMANCE TRACKING OF THE APPLICATION 
+# before and after request for performance tracking of every route
+@app.before_request
+def before_request():
+    g.start = time.time()
+    
+@app.after_request
+def after_request(response):
+    elapsed_time = time.time() - g.start
+    # put this in time_logger file
+    time_logger.info(f"Route: {request.endpoint}, "
+        f"Method: {request.method}, "
+        f"Status: {response.status_code}, "
+        f"Time: {elapsed_time:.6f} seconds")
+    # if the route is login or logout then log it in the authentication.log file
+    # with the user email logged in or logged out
+    # Check if the route is related to authentication
+
+    if request.endpoint in ['authentication.login', 'authentication.logout']:
+        user_email = g.get('user_email', 'Unknown')
+
+        auth_logger.info(
+            f"Route: {request.endpoint}, "
+            f"Method: {request.method}, "
+            f"Status: {response.status_code}, "
+            f"User: {user_email}, "
+            f"Time: {elapsed_time:.6f} seconds"
+        )
+
+    return response
 
 @app.teardown_appcontext
 def close_connection(exception): 

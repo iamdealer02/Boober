@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride|Invoice</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.3/css/countrySelect.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+                .vertical-line {
+            width: 2px;
+            height: 70px;
+            background-color: #000;
+          margin: 1%;
+        }
+
+        
+.profile-nav{
+            height: 50px;
+            cursor: pointer;
+        }
+        .navbar {
+            background-color: black;
+        }
+    </style>
+    <script>
+        function initProjectedRide() {
+      // Initialize the map
+      console.log('init map')
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 25
+      });
+
+      google.maps.event.clearInstanceListeners(map);
+  
+      // Initialize the Directions service and renderer
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+  
+      // Call the function to display the route
+      calculateAndDisplayRoute();
+    }
+  
+    function calculateAndDisplayRoute() {
+      // Define the start and end points
+      const start = '{{ride_data["pickup_location"]}}';
+      const end = '{{ride_data["dropoff_location"]}}';
+  
+      // Request directions from the Directions service
+      directionsService.route(
+        {
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        },
+        (response, status) => {
+          if (status === 'OK') {
+            
+            directionsRenderer.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        }
+);
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg"> 
+        <a class="navbar-brand text-light font-weight-bold ml-5" href="#">{{ _('BooBER') }}</a>
+        <button class="navbar-toggler btn-light bg-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-dark"></span>
+        </button>
+        <div class="ml-auto mr-5">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light ml-3" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" class="img-fluid rounded-circle profile-nav" alt="Profile Image">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/client/profile">Profile</a>
+                    <a class="dropdown-item" href="/client/previousRides">View Your Rides</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center font-weight-bold">Invoice</h3>
+            </div>
+            
+            <div class="card-body d-flex flex-row">
+                
+                <div class="trip-details d-flex flex-column mr-5 ">
+                    <div class="d-flex flex-row justify-content-between">
+                        
+                        <i class="fas fa-location-dot mt-1"></i>
+                        <div class="pickup font-weight-bold">
+                            {{ ride_data['pickup_location'] }}
+                        </div>
+            
+                    </div>
+                    <div class="vertical-line"></div>
+                                           
+                    <div class="d-flex flex-row justify-content-around">
+                        <i class="fas fa-location-arrow mt-1"></i>
+                        <div class="dropoff font-weight-bold">
+                            {{ ride_data['dropoff_location'] }}
+                        </div>
+                    </div>
+                    <div class="ride-data mt-5">
+                        <div class="font-weight-bold mb-2">RIDE PRICE :   {{ ride_data['price'] }}</div>
+                        <div class="font-weight-bold mb-2"> DATE : {{ ride_data['made_at'] }}</div>
+                        <div class="font-weight-bold mb-2">STATUS : {{ ride_data['status'] }}</div>
+
+                    </div>
+
+            
+                </div>
+                <div id="map" style="width:50%;height:500px;"></div>
+    
+            </div>
+        </div>
+    
+        
+     
+        
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc&callback=initProjectedRide"></script>
+</body>
+
+
+</html>

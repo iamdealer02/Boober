@@ -1,7 +1,5 @@
 from flask import Blueprint,  request, jsonify
 from Class.map.classes import GoogleGeocodingClient
-from logger.log import time_logger
-import time 
 from Helpers.Price.price import distance, calculate_price
 map_bp = Blueprint("map", __name__, template_folder="templates")
 
@@ -10,7 +8,7 @@ google_geocoding_client = GoogleGeocodingClient(api_key="AIzaSyDs2tOOseqqVxI6Rp_
 
 @map_bp.route("/geocode", methods=['POST'])
 def geocode():
-    start_time = time.time()
+  
     pickup = request.form.get('Pickup')
     dropoff = request.form.get('Dropoff')
     print('geocoding')
@@ -22,9 +20,7 @@ def geocode():
         'pickup': geocoding_results_pickup,
         'dropoff': geocoding_results_dropoff
     }
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    time_logger.info(f'Route: /geocode, Time: {elapsed_time}')
+ 
     print(response_data)
     pickup_latitude, pickup_longitude = extract_coordinates(geocoding_results_pickup)
     dropoff_latitude, dropoff_longitude = extract_coordinates(geocoding_results_dropoff)

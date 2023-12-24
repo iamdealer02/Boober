@@ -36,23 +36,29 @@
             <span class="navbar-toggler-icon bg-dark"></span>
         </button>
     </nav>
+    <div class="loading-screen" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="h5 mt-3">Please wait while we verify your account</div>
+    </div>
     <div class="container">
         <div class="row justify-content-center log" style="height: 100vh;">
             <div class="verify-board ">
                 <div class="h2">PLEASE ENTER THE ONE-TIME PASSWORD TO VERIFY YOUR ACCOUNT</div>
                 <div class="h5 text-center mt-3">A one-time password has been sent to</div>
                 <!-- OTP Form -->
-                <form id="otpForm">
+                <form id="otpForm" method="post" >
                     <div class="d-flex justify-content-center mt-5">
                         <!-- Create 6 input fields for OTP -->
-                        <input type="text" class="otp-input" maxlength="1" id="digit1" oninput="moveToNext(this)" required>
-                        <input type="text" class="otp-input" maxlength="1" id="digit2" oninput="moveToNext(this)" required>
-                        <input type="text" class="otp-input" maxlength="1" id="digit3" oninput="moveToNext(this)" required>
-                        <input type="text" class="otp-input" maxlength="1" id="digit4" oninput="moveToNext(this)" required>
-                        <input type="text" class="otp-input" maxlength="1" id="digit5" oninput="moveToNext(this)" required>
-                        <input type="text" class="otp-input" maxlength="1" id="digit6" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit1" name="digit1" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit2" name="digit2" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit3" name="digit3" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit4" name="digit4" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit5" name="digit5" oninput="moveToNext(this)" required>
+                        <input type="text" class="otp-input" maxlength="1" id="digit6" name="digit6" required>
                     </div>
-                    <button type="button" class="btn btn-primary mt-5" onclick="submitOTP()">VALIDATE</button>
+                    <button onclick="submitForm()" class="btn btn-primary mt-5">VALIDATE</button>
                 </form>
                 <div class="mt-5"><img src="https://img.icons8.com/?size=160&id=hL3PqwLhIJcz&format=gif"></div>
                 
@@ -79,10 +85,17 @@
             }
         }
 
-        function submitOTP() {
-            // Implement your logic to submit the OTP
-            // You can access individual digits using document.getElementById('digit1').value, etc.
+        function submitForm(){
+            // submits form after a loading screen
+            var loadingScreen = document.querySelector(".loading-screen");
+            loadingScreen.style.display = "block";
+            setTimeout(function(){
+                document.getElementById("otpForm").submit();
+            }, 4000);
+    
+
         }
+
     </script>
 </body>
 </html>

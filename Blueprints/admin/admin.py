@@ -5,7 +5,6 @@ from Class.authentication.classes import LoginForm, User
 from Database.SQL.client import check_user
 from Database.MongoDB.driver import get_non_verified_drivers,get_driver_details,get_media,verify_driver
 from werkzeug.utils import secure_filename
-from logger.log import time_logger, auth_logger
 
 
 
@@ -24,7 +23,6 @@ def adminLogin():
         admin = check_user(email)
         if admin and (admin[2] == password):
             login_user(User(admin[0], admin[1], admin[3]))
-            auth_logger.info('Admin Logged in')
             return redirect(url_for('admin.adminPage'))
 
     return render_template('adminLogin.html', form=form)

@@ -284,6 +284,45 @@
             // Your function here
             connectChat()
         });
+        function initProjectedRide() {
+      // Initialize the map
+      console.log('init map')
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 25
+      });
+
+      google.maps.event.clearInstanceListeners(map);
+  
+      // Initialize the Directions service and renderer
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+  
+      // Call the function to display the route
+      calculateAndDisplayRoute();
+    }
+  
+    function calculateAndDisplayRoute() {
+      // Define the start and end points
+      const start = '{{ride_data["pickup_location"]}}';
+      const end = '{{ride_data["dropoff_location"]}}';
+  
+      // Request directions from the Directions service
+      directionsService.route(
+        {
+          origin: start,
+          destination: end,
+          travelMode: 'DRIVING'
+        },
+        (response, status) => {
+          if (status === 'OK') {
+            
+            directionsRenderer.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        }
+      );
+    }
         </script>
 </head>
 <body>
@@ -348,7 +387,7 @@
                                 <div class="mt-3"> Make sure to Sanitize the Seats when The rides end</div>
                             </div>
                             <div class="h3 text-center mt-3">Have you reached the destination?</div>
-                            <button class="btn btn-danger text-center " >Ride Ended</button>
+                            <button class="btn btn-danger text-center " onclick="finishRide()" >Ride Ended</button>
                         </div>
                         {% endif %}
 
@@ -379,19 +418,10 @@
                 </div>
             </div>
         </div>
-        <div class="map-board ml-3">
-            <iframe
-            width="600"
-            height="700"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc
-            &q=Space+Needle,Seattle+WA">
-            </iframe>    
-        </div>
-    </div>
+        <div class="map-board">
+            <div id="map" style="height: 90vh; width: 30vw;"></div>
+  
+          </div>
     
     <script>
         var socket = io.connect('http://' + document.domain + ':' + location.port + '/sockets');
@@ -600,6 +630,25 @@
                 }
             });
         });
+        function finishRide(){
+            // send the ajax call to finish the ride
+            $.ajax({
+                    type: 'GET',
+                    url: `/driver/ride/finish/{{ride_data["_id"]}}`, // Replace with the actual URL of your backend endpoint
+                    success: function(response) {
+                        alert('Ride Finished');
+                        console.log(response);
+                    },
+
+                    error: function(error) {
+                        // Handle errors
+                        console.log(error)
+                            // start the ride
+                            location.reload();
+                    }
+                });
+        }
     </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc&callback=initProjectedRide"></script>
 </body>
 </html>
