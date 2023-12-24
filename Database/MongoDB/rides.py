@@ -2,9 +2,10 @@ from pymongo import MongoClient
 from datetime import datetime
 # from gridfs import GridFS
 from bson import ObjectId
+import os
 
 # Create a new client and connect to the server
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient(os.getenv("MONGO_URI"))
 
 
 

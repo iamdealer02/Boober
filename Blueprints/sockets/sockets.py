@@ -10,7 +10,6 @@ socketio = SocketIO()
 @socketio.on('connect', namespace='/sockets')
 # this event will be called in two frontend files : clients and driver_workspace
 def handle_connect():
-    print(current_user.role)
     if current_user.role == 'driver':
         # if session['driver_satus']:
         #         room_name = session['ride_id']

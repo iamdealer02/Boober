@@ -2276,3 +2276,218 @@ KeyError: 'driver_satus'
 2023-12-24 18:21:17,075 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:21:17] "POST /socket.io/?EIO=4&transport=polling&t=OoSs6SC&sid=keEMuDMcTX7-KlnJAAAA HTTP/1.1" 200 -
 2023-12-24 18:21:18,316 [INFO] - Route: client.invoice, Method: GET, Status: 200, Time: 0.807164 seconds
 2023-12-24 18:21:18,316 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:21:18] "GET /client/invoice/658863f0a4302c27dea1725e HTTP/1.1" 200 -
+2023-12-24 18:48:27,215 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 18:48:27,216 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 18:48:27,216 [INFO] -  * Restarting with stat
+2023-12-24 18:48:27,857 [WARNING] -  * Debugger is active!
+2023-12-24 18:48:27,861 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 18:48:27,873 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:48:27] "GET /socket.io/?EIO=4&transport=polling&t=OoSyKOs HTTP/1.1" 200 -
+2023-12-24 18:48:27,884 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:48:27] "POST /socket.io/?EIO=4&transport=polling&t=OoSyKba&sid=lrksuIpP2SFP7busAAAA HTTP/1.1" 200 -
+2023-12-24 18:48:27,888 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:48:27] "GET /socket.io/?EIO=4&transport=polling&t=OoSyKbb&sid=lrksuIpP2SFP7busAAAA HTTP/1.1" 200 -
+2023-12-24 18:48:59,727 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 18:48:59,727 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 18:48:59,727 [INFO] -  * Restarting with stat
+2023-12-24 18:49:00,372 [WARNING] -  * Debugger is active!
+2023-12-24 18:49:00,375 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 18:49:00,389 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:49:00] "GET /socket.io/?EIO=4&transport=polling&t=OoSyRzB HTTP/1.1" 200 -
+2023-12-24 18:49:00,399 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:49:00] "GET /socket.io/?EIO=4&transport=polling&t=OoSySXg&sid=oKh15ZDLBUBKLYc_AAAA HTTP/1.1" 200 -
+2023-12-24 18:49:00,399 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:49:00] "POST /socket.io/?EIO=4&transport=polling&t=OoSySXf&sid=oKh15ZDLBUBKLYc_AAAA HTTP/1.1" 200 -
+2023-12-24 18:49:23,583 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\app.py', reloading
+2023-12-24 18:49:23,847 [INFO] -  * Restarting with stat
+2023-12-24 18:49:24,461 [WARNING] -  * Debugger is active!
+2023-12-24 18:49:24,464 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 18:49:25,077 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:49:25] "GET /socket.io/?EIO=4&transport=polling&t=OoSyYZF HTTP/1.1" 200 -
+2023-12-24 18:49:25,086 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:49:25] "POST /socket.io/?EIO=4&transport=polling&t=OoSyYZN&sid=GL3gtmPymctEQ80bAAAA HTTP/1.1" 200 -
+2023-12-24 18:49:25,088 [INFO] - 127.0.0.1 - - [24/Dec/2023 18:49:25] "GET /socket.io/?EIO=4&transport=polling&t=OoSyYZO&sid=GL3gtmPymctEQ80bAAAA HTTP/1.1" 200 -
+2023-12-24 19:06:54,894 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 19:06:54,895 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 19:06:54,895 [INFO] -  * Restarting with stat
+2023-12-24 19:06:55,588 [WARNING] -  * Debugger is active!
+2023-12-24 19:06:55,591 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 19:06:55,605 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:06:55] "GET /socket.io/?EIO=4&transport=polling&t=OoT0YvM HTTP/1.1" 200 -
+2023-12-24 19:06:55,618 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:06:55] "GET /socket.io/?EIO=4&transport=polling&t=OoT0Z1w&sid=a1PvXQuE8uIN6PqqAAAA HTTP/1.1" 200 -
+2023-12-24 19:06:55,614 [ERROR] - message handler error
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 823, in _handle_event
+    ret = handler(auth)
+          ^^^^^^^^^^^^^
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\engineio\server.py", line 431, in run_handler
+    return self.handlers[event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 642, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 532, in _handle_connect
+    success = self._trigger_event(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 609, in _trigger_event
+    return self.handlers[namespace][event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 282, in _handler
+    return self._handle_event(handler, message, namespace, sid,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 825, in _handle_event
+    ret = handler()
+          ^^^^^^^^^
+  File "c:\Users\sharm\OneDrive\Desktop\PROJECTS\Flask Project\Blueprints\sockets\sockets.py", line 13, in handle_connect
+    print(current_user.role)
+          ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUserMixin' object has no attribute 'role'
+2023-12-24 19:06:55,623 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:06:55] "POST /socket.io/?EIO=4&transport=polling&t=OoT0Z1v&sid=a1PvXQuE8uIN6PqqAAAA HTTP/1.1" 200 -
+2023-12-24 19:07:33,386 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 19:07:33,386 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 19:07:33,386 [INFO] -  * Restarting with stat
+2023-12-24 19:07:33,975 [WARNING] -  * Debugger is active!
+2023-12-24 19:07:33,978 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 19:07:34,067 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:07:34] "GET /socket.io/?EIO=4&transport=polling&t=OoT0iQh HTTP/1.1" 200 -
+2023-12-24 19:07:34,078 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:07:34] "GET /socket.io/?EIO=4&transport=polling&t=OoT0iQu&sid=7Ojh2vfvo-JY9q6hAAAA HTTP/1.1" 200 -
+2023-12-24 19:07:34,074 [ERROR] - message handler error
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 823, in _handle_event
+    ret = handler(auth)
+          ^^^^^^^^^^^^^
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\engineio\server.py", line 431, in run_handler
+    return self.handlers[event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 642, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 532, in _handle_connect
+    success = self._trigger_event(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\socketio\server.py", line 609, in _trigger_event
+    return self.handlers[namespace][event](*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 282, in _handler
+    return self._handle_event(handler, message, namespace, sid,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_socketio\__init__.py", line 825, in _handle_event
+    ret = handler()
+          ^^^^^^^^^
+  File "c:\Users\sharm\OneDrive\Desktop\PROJECTS\Flask Project\Blueprints\sockets\sockets.py", line 13, in handle_connect
+    print(current_user.role)
+          ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUserMixin' object has no attribute 'role'
+2023-12-24 19:07:34,078 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:07:34] "POST /socket.io/?EIO=4&transport=polling&t=OoT0iQt&sid=7Ojh2vfvo-JY9q6hAAAA HTTP/1.1" 200 -
+2023-12-24 19:08:21,057 [INFO] - Route: client.invoice, Method: GET, Status: 302, Time: 0.000000 seconds
+2023-12-24 19:08:21,059 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:08:21] "[32mGET /client/invoice/658863f0a4302c27dea1725e HTTP/1.1[0m" 302 -
+2023-12-24 19:08:21,070 [INFO] - Route: authentication.login, Method: GET, Status: 200, Time: 0.007963 seconds
+2023-12-24 19:08:21,071 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.007963 seconds
+2023-12-24 19:08:21,071 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:08:21] "GET /login?next=/client/invoice/658863f0a4302c27dea1725e HTTP/1.1" 200 -
+2023-12-24 19:08:25,046 [INFO] - Route: authentication.login, Method: GET, Status: 200, Time: 0.000999 seconds
+2023-12-24 19:08:25,046 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.000999 seconds
+2023-12-24 19:08:25,046 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:08:25] "GET /login?next=/client/invoice/658863f0a4302c27dea1725e HTTP/1.1" 200 -
+2023-12-24 19:08:34,422 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:08:34] "GET /socket.io/?EIO=4&transport=websocket&sid=7Ojh2vfvo-JY9q6hAAAA HTTP/1.1" 200 -
+2023-12-24 19:08:34,427 [INFO] - Route: authentication.logout, Method: GET, Status: 302, Time: 0.000000 seconds
+2023-12-24 19:08:34,428 [INFO] - Route: authentication.logout, Method: GET, Status: 302, User: Unknown, Time: 0.000000 seconds
+2023-12-24 19:08:34,428 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:08:34] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-24 19:08:34,435 [INFO] - Route: authentication.login, Method: GET, Status: 200, Time: 0.002003 seconds
+2023-12-24 19:08:34,435 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.002003 seconds
+2023-12-24 19:08:34,436 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:08:34] "GET /login?next=/logout HTTP/1.1" 200 -
+2023-12-24 19:10:53,090 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 19:10:53,090 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 19:10:53,091 [INFO] -  * Restarting with stat
+2023-12-24 19:10:53,712 [WARNING] -  * Debugger is active!
+2023-12-24 19:10:53,715 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 19:11:01,693 [INFO] - Route: authentication.login, Method: GET, Status: 200, Time: 0.009001 seconds
+2023-12-24 19:11:01,693 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.009001 seconds
+2023-12-24 19:11:01,693 [INFO] - 127.0.0.1 - - [24/Dec/2023 19:11:01] "GET /login?next=/client/invoice/658863f0a4302c27dea1725e HTTP/1.1" 200 -
+2023-12-24 19:24:02,047 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\app.py', reloading
+2023-12-24 19:24:02,592 [INFO] -  * Restarting with stat
+2023-12-24 19:24:03,752 [WARNING] -  * Debugger is active!
+2023-12-24 19:24:03,755 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 22:30:41,627 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-24 22:30:41,628 [INFO] - [33mPress CTRL+C to quit[0m
+2023-12-24 22:30:41,629 [INFO] -  * Restarting with stat
+2023-12-24 22:30:42,833 [WARNING] -  * Debugger is active!
+2023-12-24 22:30:42,840 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 22:30:46,023 [INFO] - Route: client.register, Method: GET, Status: 200, Time: 0.034573 seconds
+2023-12-24 22:30:46,025 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:30:46] "GET /client/register HTTP/1.1" 200 -
+2023-12-24 22:30:46,112 [INFO] - Route: None, Method: GET, Status: 404, Time: 0.001472 seconds
+2023-12-24 22:30:46,113 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:30:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-12-24 22:43:05,793 [INFO] - The CSRF token has expired.
+2023-12-24 22:43:05,813 [INFO] - Route: authentication.login, Method: POST, Status: 200, Time: 0.146839 seconds
+2023-12-24 22:43:05,814 [INFO] - Route: authentication.login, Method: POST, Status: 200, User: Unknown, Time: 0.146839 seconds
+2023-12-24 22:43:05,816 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:05] "POST /login?role= HTTP/1.1" 200 -
+2023-12-24 22:43:15,773 [INFO] - Route: authentication.login, Method: POST, Status: 302, Time: 0.876655 seconds
+2023-12-24 22:43:15,774 [INFO] - Route: authentication.login, Method: POST, Status: 302, User: upasana.sharma@epita.fr, Time: 0.876655 seconds
+2023-12-24 22:43:15,776 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:15] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-24 22:43:15,793 [INFO] - Route: driver.driver, Method: GET, Status: 302, Time: 0.005067 seconds
+2023-12-24 22:43:15,795 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:15] "[32mGET /driver/ HTTP/1.1[0m" 302 -
+2023-12-24 22:43:15,822 [INFO] - Route: driver.driver_space, Method: GET, Status: 200, Time: 0.014389 seconds
+2023-12-24 22:43:15,823 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:15] "GET /driver/workspace HTTP/1.1" 200 -
+2023-12-24 22:43:15,887 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:15] "GET /socket.io/?EIO=4&transport=polling&t=OoTo42d HTTP/1.1" 200 -
+2023-12-24 22:43:15,911 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:15] "POST /socket.io/?EIO=4&transport=polling&t=OoTo42s&sid=VAldlLQCrfp1O6P1AAAA HTTP/1.1" 200 -
+2023-12-24 22:43:15,912 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:15] "GET /socket.io/?EIO=4&transport=polling&t=OoTo42u&sid=VAldlLQCrfp1O6P1AAAA HTTP/1.1" 200 -
+2023-12-24 22:43:22,251 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:22] "GET /socket.io/?EIO=4&transport=websocket&sid=VAldlLQCrfp1O6P1AAAA HTTP/1.1" 200 -
+2023-12-24 22:43:22,266 [INFO] - Route: authentication.logout, Method: GET, Status: 302, Time: 0.003000 seconds
+2023-12-24 22:43:22,267 [INFO] - Route: authentication.logout, Method: GET, Status: 302, User: Unknown, Time: 0.003000 seconds
+2023-12-24 22:43:22,269 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:22] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-12-24 22:43:22,292 [INFO] - Route: home.home, Method: GET, Status: 200, Time: 0.013225 seconds
+2023-12-24 22:43:22,293 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:22] "GET / HTTP/1.1" 200 -
+2023-12-24 22:43:34,024 [INFO] - Route: driver.register, Method: GET, Status: 200, Time: 0.034337 seconds
+2023-12-24 22:43:34,026 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:34] "GET /driver/register HTTP/1.1" 200 -
+2023-12-24 22:43:36,595 [INFO] - Route: authentication.login, Method: GET, Status: 200, Time: 0.003000 seconds
+2023-12-24 22:43:36,596 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.003000 seconds
+2023-12-24 22:43:36,597 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:43:36] "GET /login HTTP/1.1" 200 -
+2023-12-24 22:44:01,556 [INFO] - Route: authentication.login, Method: POST, Status: 302, Time: 0.867032 seconds
+2023-12-24 22:44:01,556 [INFO] - Route: authentication.login, Method: POST, Status: 302, User: sharma.upasana2003@gmail.com, Time: 0.867032 seconds
+2023-12-24 22:44:01,558 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:44:01] "[32mPOST /login?role= HTTP/1.1[0m" 302 -
+2023-12-24 22:44:01,602 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.026012 seconds
+2023-12-24 22:44:01,604 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:44:01] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:44:06,488 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.002563 seconds
+2023-12-24 22:44:06,490 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:44:06] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:44:26,229 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.003999 seconds
+2023-12-24 22:44:26,230 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:44:26] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:45:09,448 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.003008 seconds
+2023-12-24 22:45:09,449 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:45:09] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:45:22,192 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\map\\map.py', reloading
+2023-12-24 22:45:22,475 [INFO] -  * Restarting with stat
+2023-12-24 22:45:23,799 [WARNING] -  * Debugger is active!
+2023-12-24 22:45:23,806 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 22:47:03,878 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\client\\client.py', reloading
+2023-12-24 22:47:04,214 [INFO] -  * Restarting with stat
+2023-12-24 22:47:05,388 [WARNING] -  * Debugger is active!
+2023-12-24 22:47:05,393 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 22:47:28,643 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.022049 seconds
+2023-12-24 22:47:28,645 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:47:28] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:49:37,542 [INFO] -  * Detected change in 'c:\\Users\\sharm\\OneDrive\\Desktop\\PROJECTS\\Flask Project\\Blueprints\\client\\client.py', reloading
+2023-12-24 22:49:37,831 [INFO] -  * Restarting with stat
+2023-12-24 22:49:39,071 [WARNING] -  * Debugger is active!
+2023-12-24 22:49:39,076 [INFO] -  * Debugger PIN: 742-087-091
+2023-12-24 22:49:43,603 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.020782 seconds
+2023-12-24 22:49:43,604 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:49:43] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:50:04,583 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.016516 seconds
+2023-12-24 22:50:04,585 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:50:04] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:50:06,063 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.001997 seconds
+2023-12-24 22:50:06,065 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:50:06] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:51:31,243 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.012914 seconds
+2023-12-24 22:51:31,244 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:51:31] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:51:36,069 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.002518 seconds
+2023-12-24 22:51:36,070 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:51:36] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:51:52,543 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.020970 seconds
+2023-12-24 22:51:52,545 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:51:52] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:52:20,853 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.019001 seconds
+2023-12-24 22:52:20,855 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:52:20] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:53:18,791 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.004432 seconds
+2023-12-24 22:53:18,792 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:53:18] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 22:53:49,806 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.004327 seconds
+2023-12-24 22:53:49,807 [INFO] - 127.0.0.1 - - [24/Dec/2023 22:53:49] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 23:01:51,429 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.005670 seconds
+2023-12-24 23:01:51,431 [INFO] - 127.0.0.1 - - [24/Dec/2023 23:01:51] "GET /client/ HTTP/1.1" 200 -
+2023-12-24 23:03:08,311 [INFO] - Route: client.client, Method: GET, Status: 200, Time: 0.023305 seconds
+2023-12-24 23:03:08,313 [INFO] - 127.0.0.1 - - [24/Dec/2023 23:03:08] "GET /client/ HTTP/1.1" 200 -

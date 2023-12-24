@@ -22,3 +22,13 @@
 2023-12-24 13:49:26,387 [INFO] - Route: authentication.login, Method: POST, Status: 302, User: sharma.upasana2003@gmail.com, Time: 0.216212 seconds
 2023-12-24 15:18:49,223 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.008999 seconds
 2023-12-24 16:30:27,100 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.001990 seconds
+2023-12-24 19:08:21,071 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.007963 seconds
+2023-12-24 19:08:25,046 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.000999 seconds
+2023-12-24 19:08:34,428 [INFO] - Route: authentication.logout, Method: GET, Status: 302, User: Unknown, Time: 0.000000 seconds
+2023-12-24 19:08:34,435 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.002003 seconds
+2023-12-24 19:11:01,693 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.009001 seconds
+2023-12-24 22:43:05,814 [INFO] - Route: authentication.login, Method: POST, Status: 200, User: Unknown, Time: 0.146839 seconds
+2023-12-24 22:43:15,774 [INFO] - Route: authentication.login, Method: POST, Status: 302, User: upasana.sharma@epita.fr, Time: 0.876655 seconds
+2023-12-24 22:43:22,267 [INFO] - Route: authentication.logout, Method: GET, Status: 302, User: Unknown, Time: 0.003000 seconds
+2023-12-24 22:43:36,596 [INFO] - Route: authentication.login, Method: GET, Status: 200, User: Unknown, Time: 0.003000 seconds
+2023-12-24 22:44:01,556 [INFO] - Route: authentication.login, Method: POST, Status: 302, User: sharma.upasana2003@gmail.com, Time: 0.867032 seconds

@@ -8,7 +8,8 @@ from flask_login import LoginManager, current_user
 from SMTP.mail_init import init_mail
 import time
 from logger.log import time_logger, auth_logger
-
+from dotenv import load_dotenv
+import os
 
 # getting the blueprints
 from Blueprints.home.home import home_bp
@@ -20,10 +21,10 @@ from Blueprints.sockets.sockets import sockets_bp, socketio
 from Blueprints.admin.admin import admin_bp
 
 app = Flask(__name__)
+load_dotenv()
 
 
-
-app.secret_key = 'upasana12345'
+app.secret_key = os.getenv("SECRET_KEY")
 app.debug = True
 
 # configuring the cache
@@ -98,6 +99,9 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+
+
+
 
 if __name__ == '__main__':
     socketio.init_app(app)

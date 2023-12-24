@@ -8,7 +8,7 @@ from Class.authentication.classes import RegistrationForm
 from flask_bcrypt import Bcrypt
 from flask_mail import Message
 from SMTP.mail_init import mail
-
+import os
 driver_bp = Blueprint("driver", __name__, template_folder="templates")
 bcrypt = Bcrypt()
 
@@ -112,6 +112,7 @@ def accept_ride(ride_id):
 @driver_bp.route("/ride/<ride_id>", methods=['GET'])
 @login_required
 def riding(ride_id):
+    MAP_API_KEY = os.getenv("MAP_API_KEY")
     # we need the ride pickup and dropoff location
     # also the otp verification
     # make sure only the driver related to the ride  can access this
@@ -120,7 +121,7 @@ def riding(ride_id):
     session['ride_id'] = ride_id
     ride_status = get_ride_status(ride_id)
     if current_user.role == 'driver':
-        return render_template('driverRide.html',ride_data = ride_data, status = ride_status)
+        return render_template('driverRide.html',ride_data = ride_data, status = ride_status, MAP_API_KEY=MAP_API_KEY)
     
 @driver_bp.route("/ride/<ride_id>/<otp>", methods=['POST'])
 @login_required
@@ -176,6 +177,7 @@ def finish_ride(ride_id):
 @driver_bp.route("/invoice/<ride_id>", methods=['GET'])
 @login_required
 def invoice(ride_id):
+    MAP_API_KEY = os.getenv("MAP_API_KEY")
     ride_data = get_ride_details(ride_id)
-    return render_template('invoice.html', ride_data = ride_data)
+    return render_template('invoice.html', ride_data = ride_data, MAP_API_KEY=MAP_API_KEY)
     

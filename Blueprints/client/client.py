@@ -10,7 +10,7 @@ from Database.MongoDB.client import add_client_address, add_client_email, add_cl
 from SMTP.mail_init import mail
 from flask_mail import Message
 from flask import redirect
-
+import os
 
 client_bp = Blueprint("client", __name__, template_folder="templates")
 bcrypt = Bcrypt()
@@ -65,8 +65,10 @@ def verify(email, hashed_password,role):
 @client_bp.route("/")
 @login_required
 def client():
+    MAP_API_KEY = os.getenv("MAP_API_KEY")
+    print(MAP_API_KEY)
     if current_user.role == 'client':
-        return render_template('client.html')
+        return render_template('client.html', MAP_API_KEY=MAP_API_KEY)
 
 @client_bp.route("/ride", methods=['POST'])
 @login_required
@@ -92,6 +94,7 @@ def client_ride(ride_id):
         ride_data = get_ride_details(ride_id)
         # get_otp gets the hashed otp from the database and display the otp to client
         otp = get_otp(ride_id)
+        MAP_API_KEY = os.getenv("MAP_API_KEY")
         if otp == None:
             secret_key = generate_random_secret_key()
             otp = generate_hotp(secret_key)
@@ -100,7 +103,7 @@ def client_ride(ride_id):
             hashed_otp = hash_otp(otp)
             print(hashed_otp)
             add_otp(ride_id,hashed_otp)
-        return render_template('clientRide.html', otp=session['otp'], driver_details = driver_details, ride_data=ride_data)
+        return render_template('clientRide.html', otp=session['otp'], driver_details = driver_details, ride_data=ride_data, MAP_API_KEY=MAP_API_KEY)
     
 
 @client_bp.route("/profile", methods=['GET'])
@@ -142,14 +145,15 @@ def invoice(ride_id):
     ride_data = get_ride_details(ride_id)
     message_send= False
     email = current_user.email
+    MAP_API_KEY = os.getenv("MAP_API_KEY")
     # confirmation mail about the posting of recipe
     if message_send == False:
         msg = Message('INVOICE', sender='no_reply@app.com', recipients=[email])
         # send the invoice html file to the client
-        msg.html = render_template('invoice.html', ride_data=ride_data)
+        msg.html = render_template('invoice.html', ride_data=ride_data, MAP_API_KEY=MAP_API_KEY)
         mail.send(msg)
         message_send = True
     
     
-    return render_template('invoice.html', ride_data = ride_data)
+    return render_template('invoice.html', ride_data = ride_data, MAP_API_KEY=MAP_API_KEY)
     

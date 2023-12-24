@@ -14,6 +14,6 @@ class GoogleGeocodingClient:
         location = data['results'][0]['geometry']['location']
         latitude = location['lat']
         longitude = location['lng']
-
+        # api endpoint for getting the location
         return(f'Latitude: {latitude}, Longitude: {longitude}')
        

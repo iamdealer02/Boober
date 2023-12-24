@@ -181,7 +181,7 @@
    const CONFIGURATION = {
       "ctaTitle": "Checkout",
       "mapOptions": {"center":{"lat":37.4221,"lng":-122.0841},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":11,"zoomControl":true,"maxZoom":22,"mapId":""},
-      "mapsApiKey": "AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc",
+      "mapsApiKey": '{{MAPS_API_KEY}}',
       "capabilities": {"addressAutocompleteControl":true,"mapDisplayControl":false,"ctaControl":true}
     };
 
@@ -282,6 +282,7 @@ async function initMap() {
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/client/profile">Profile</a>
                     <a class="dropdown-item" href="/client/previousRides">View Your Rides</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -594,10 +595,10 @@ async function initMap() {
                             loading="lazy"
                             allowfullscreen
                             referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc
+                            src="https://www.google.com/maps/embed/v1/place?key={{MAP_API_KEY}}
                             &q=Space+Needle,Seattle+WA">
                             </iframe>                
-                        
+                            
                 </div>
 
 
@@ -606,7 +607,7 @@ async function initMap() {
         
     </div>
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc&libraries=places,marker&callback=initMap&solution_channel=GMP_QB_addressselection_v2_cAC" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{MAP_API_KEY}}&libraries=places,marker&callback=initMap&solution_channel=GMP_QB_addressselection_v2_cAC" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

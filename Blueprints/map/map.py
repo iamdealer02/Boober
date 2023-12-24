@@ -1,10 +1,12 @@
 from flask import Blueprint,  request, jsonify
 from Class.map.classes import GoogleGeocodingClient
 from Helpers.Price.price import distance, calculate_price
+import os
+
 map_bp = Blueprint("map", __name__, template_folder="templates")
 
 
-google_geocoding_client = GoogleGeocodingClient(api_key="AIzaSyDs2tOOseqqVxI6Rp_ulXqja4VcsKbiuZc")
+google_geocoding_client = GoogleGeocodingClient(api_key=os.getenv("MAP_API_KEY"))
 
 @map_bp.route("/geocode", methods=['POST'])
 def geocode():
@@ -26,8 +28,6 @@ def geocode():
     dropoff_latitude, dropoff_longitude = extract_coordinates(geocoding_results_dropoff)
     calculated_distance = distance((pickup_latitude, pickup_longitude), (dropoff_latitude, dropoff_longitude))
     price = calculate_price(calculated_distance)
-    print(distance)
-    print(price)
     return jsonify(price)
 
 
