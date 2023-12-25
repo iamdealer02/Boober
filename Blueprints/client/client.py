@@ -135,7 +135,8 @@ def update_client_profile():
 @login_required
 def view_invoice(ride_id):    
     ride_data = get_ride_details(ride_id)
-    return render_template('invoice.html', ride_data = ride_data)
+    MAP_API_KEY = os.getenv("MAP_API_KEY")
+    return render_template('invoice.html', ride_data = ride_data,MAP_API_KEY=MAP_API_KEY)
     
 
 @client_bp.route("/invoice/<ride_id>", methods=['GET'])
@@ -153,7 +154,7 @@ def invoice(ride_id):
         msg.html = render_template('invoice.html', ride_data=ride_data, MAP_API_KEY=MAP_API_KEY)
         mail.send(msg)
         message_send = True
-    
+        print(MAP_API_KEY)
     
     return render_template('invoice.html', ride_data = ride_data, MAP_API_KEY=MAP_API_KEY)
     

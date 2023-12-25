@@ -28,6 +28,7 @@
         function initProjectedRide() {
       // Initialize the map
       console.log('init map')
+      
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 25
       });
@@ -46,7 +47,8 @@
       // Define the start and end points
       const start = '{{ride_data["pickup_location"]}}';
       const end = '{{ride_data["dropoff_location"]}}';
-  
+    console.log(start)
+    console.log(end)
       // Request directions from the Directions service
       directionsService.route(
         {
